@@ -1,6 +1,6 @@
 <button ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
 
-<div ng-show="isOfferFormOpen" id="replyForm" scroll-to-top-when="offer_changed">
+<div ng-show="isOfferFormOpen" id="replyForm" >
     <form  role="form" name="offerForm" novalidate>
         <label for="name">Offer title</label>
         <input type="text" id="name" ng-model="offer.name">
@@ -60,7 +60,7 @@
     </form>
 </div>
 
-<div>
+<div scroll-to-top-when="offer_changed">
     <div  ng-if="loading">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
