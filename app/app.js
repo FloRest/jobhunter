@@ -7,6 +7,7 @@ CONFIG.api = {
 };
 CONFIG.api.route = CONFIG.api.endpoint + ':' + CONFIG.api.port;
 
+
 // Declare app level module which depends on views, and components
 angular.module('huntaxuiba', [
   'ngRoute',

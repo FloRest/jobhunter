@@ -1,6 +1,6 @@
 viewModule
-    .controller('OffersController', ['$scope', '$routeParams', 'offersService', 'toastService',
-        function($scope, $routeParams, offersService, toastService) {
+    .controller('OffersController', ['$scope', '$routeParams', 'offersService', 'toastService', '$location',
+        function($scope, $routeParams, offersService, toastService, $location) {
             $scope.offer = {};
             $scope.offer.company = {};
             $scope.offer.requirements = [];
@@ -40,27 +40,14 @@ viewModule
                 $scope.loading=false;
             });
 
-            $scope.updateClick = function(offer) {
-                $scope.isOfferFormOpen = true;
-                $scope.updateOffer = true;
-                $scope.offer= offer;
+
+
+            $scope.routeTo = function(route) {
+                $location.path('/'+route);
+                return false;
             };
-
-            var firstDelete = true;
-            $scope.deleteOffer = function(offer) {
-                if (firstDelete) {
-                    firstDelete = false;
-                } else {
-                    offer.secret = $scope.secretDelete;
-                    offersService.delete(offer.id, offer).success(function() {
-
-                    }).error(function() {
-
-                    });
-                    firstDelete = true;
-                }
-            }
 
         }]
     )
 ;
+
