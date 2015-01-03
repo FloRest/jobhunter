@@ -16,11 +16,12 @@ viewModule
                     });
                 } else {
                     offersService.update($scope.offer.id, $scope.offer).then(function(data,err) {
-
+                        $scope.updateOffer = false;
+                        $scope.offer = {};
+                        $scope.offer.company = {};
+                        $scope.offer.requirements = [];
                     });
                 }
-
-
             };
 
             $scope.pushOffRequirements = function(index) {
@@ -38,6 +39,7 @@ viewModule
                 $scope.isOfferFormOpen = true;
                 $scope.updateOffer = true;
                 $scope.offer= offer;
+                $scope.$broadcast("offer_changed")
             }
 
         }]

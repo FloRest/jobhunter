@@ -16,7 +16,8 @@ angular.module('huntaxuiba', [
   'huntaxuiba.authService',
   'huntaxuiba.apiService',
   'huntaxuiba.toastService',
-  'huntaxuiba.views'
+  'huntaxuiba.views',
+  'ui.scrollToTopWhen'
 ]).
 controller('LayoutController', function($scope, $mdSidenav, $location,toastService) {
   $scope.openLeftMenu = function() {

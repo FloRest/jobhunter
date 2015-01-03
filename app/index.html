@@ -26,7 +26,7 @@
 
   <div ng-controller="LayoutController"  md-theme="blue" md-swipe-left="openSideNav(false)" md-swipe-right="openSideNav(true)" style="width: 100%; height: 100%">
     <section layout="row" flex>
-    <md-sidenav style="height:100vh;" md-component-id="left" class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$media('min-width: 959px')">
+    <md-sidenav style="min-height:100vh;" md-component-id="left" class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$media('min-width: 959px')">
       <md-toolbar md-scroll-shrink>
         <div class="md-toolbar-tools">
           <span style="color:#ffffff; cursor: pointer" ng-click="routeTo('search')">Hunta Xiuba</span>
@@ -34,8 +34,7 @@
           <span flex></span>
         </div>
       </md-toolbar>
-      <md-list >
-        <md-item>
+
           <div>
             <md-button aria-label="Offers" class="md-primary nav-button" ng-click="routeTo('offers');search.type='offers'">
               Offers
@@ -46,8 +45,7 @@
               Resumes
             </md-button>
           </div>
-        </md-item>
-      </md-list>
+
     </md-sidenav>
 
     <md-content flex>
@@ -98,6 +96,7 @@
   <script src="components/apiRest/users/users.js"></script>
   <!---->
   <script src="components/toast/toast.js"></script>
+  <script src="components/directives/scrollTop.js"></script>
   <!---->
 
   <!-- app -->
