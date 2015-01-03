@@ -19,6 +19,9 @@ apiService
                 return $http.get(url, {
                     params: params
                 });
+            },
+            delete: function (id, data) {
+                return $http.delete(url+'/'+id, data)
             }
         };
     })

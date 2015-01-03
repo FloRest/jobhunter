@@ -1,0 +1,37 @@
+<div  ng-if="loading">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div ng-if="!loading" >
+
+    <div ng-show="isOfferFormOpen">
+        <ng-include src=" 'views/offerS/formOffer.html' "></ng-include>
+    </div>
+
+    <div class="{{offer.type}}"></div>
+    <div>GENERAL INFORMATION</div>
+    <div>{{offer.name}}</div>
+    <div>{{offer.email}}</div>
+    <div>{{offer.phone}}</div>
+    <div>{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+    <div>JOB INFORMATION</div>
+    <div>{{offer.description}}</div>
+    <div>
+        <div>Requirements</div>
+        <div ng-repeat="requirement in offer.requirements">{{requirement}}</div>
+    </div>
+    <div>
+        Wage : {{offer.price.min}} - {{offer.price.max}}
+    </div>
+    <div>{{offer.type}}</div>
+    <div>COMPANY INFORMATION</div>
+    <div>{{offer.company.name}}</div>
+    <div>{{offer.company.adress}}</div>
+    <div>{{offer.company.city}}</div>
+    <div>{{offer.company.country}}</div>
+    <div>{{offer.company.description}}</div>
+    <div><a target="_blank" href="http://{{offer.company.website}}">{{offer.company.website}}</a></div>
+
+    <button ng-click="updateClick()">Update</button>
+    <input ng-init="showSecretDeleteInput=false" ng-show="showSecretDeleteInput" ng-model="secretDelete">
+    <button ng-click="deleteOffer(offer);showSecretDeleteInput=true">Delete</button>
+</div>

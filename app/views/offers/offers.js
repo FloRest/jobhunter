@@ -1,6 +1,6 @@
 viewModule
-    .controller('OffersController', ['$scope', '$routeParams', 'offersService', 'toastService',
-        function($scope, $routeParams, offersService, toastService) {
+    .controller('OffersController', ['$scope', '$routeParams', 'offersService', 'toastService', '$location',
+        function($scope, $routeParams, offersService, toastService, $location) {
             $scope.offer = {};
             $scope.offer.company = {};
             $scope.offer.requirements = [];
@@ -9,18 +9,25 @@ viewModule
             $scope.updateOffer = false;
 
             $scope.sendOffer = function() {
-                console.log($scope.offer);
                 if ($scope.updateOffer == false) {
-                    offersService.create($scope.offer).then(function(data, err) {
-                        $scope.offers.push(data.data);
+                    offersService.create($scope.offer).success(function(data, err) {
+                        $scope.offers.push(data);
+                        toastService.toast('You successfully created a job offer !');
+                        $scope.isOfferFormOpen = false;
+                    }).error(function() {
+                        toastService.toast('Something is wrong. Check the fields.');
                     });
                 } else {
-                    offersService.update($scope.offer.id, $scope.offer).then(function(data,err) {
+                    offersService.update($scope.offer.id, $scope.offer).success(function(data,err) {
                         $scope.updateOffer = false;
                         $scope.offer = {};
                         $scope.offer.company = {};
                         $scope.offer.requirements = [];
-                    });
+                        toastService.toast('Job offer updated.');
+                        $scope.isOfferFormOpen = false;
+                    }).error(function() {
+                        toastService.toast('Something is wrong. Did you forgot the secret ?');
+                    })
                 }
             };
 
@@ -29,19 +36,18 @@ viewModule
             };
 
             offersService.getAll().then(function(data, err) {
-                console.log(data);
                 $scope.offers = $scope.offers.concat(data.data.hits);
-                console.log($scope.offers);
                 $scope.loading=false;
-            })
+            });
 
-            $scope.updateClick = function(offer) {
-                $scope.isOfferFormOpen = true;
-                $scope.updateOffer = true;
-                $scope.offer= offer;
-                $scope.$broadcast("offer_changed")
-            }
+
+
+            $scope.routeTo = function(route) {
+                $location.path('/'+route);
+                return false;
+            };
 
         }]
     )
 ;
+

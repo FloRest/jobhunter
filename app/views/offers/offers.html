@@ -1,100 +1,27 @@
-<div class="pageView">
-    <button class="toggleFormButton btn btn-primary btn-lg" ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
+<button ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
 
-    <div ng-show="isOfferFormOpen" id="replyForm" scroll-to-top-when="offer_changed">
-        <form  role="form" name="offerForm" novalidate>
-            <label for="name">Offer title</label>
-            <input type="text" id="name" ng-model="offer.name">
+<div ng-show="isOfferFormOpen" id="replyForm" >
+    <ng-include src=" 'views/offerS/formOffer.html' "></ng-include>
+</div>
 
-            <label for="email">Mail</label>
-            <input type="email" id="email" ng-model="offer.email">
-
-            <label for="secret">Secret</label>
-            <input type="password" id="secret" ng-model="offer.secret">
-
-            <label for="phone">Phone</label>
-            <input type="text" id="phone" ng-model="offer.phone">
-
-            <!-- COMPANY -->
-            <label for="company_name">Company name</label>
-            <input type="text" id="company_name" ng-model="offer.company.name">
-
-            <label for="company_city">Company city</label>
-            <input type="text" id="company_city" ng-model="offer.company.city">
-
-            <label for="company_country">Company country</label>
-            <input type="text" id="company_country" ng-model="offer.company.country">
-
-            <label for="company_address">Company address</label>
-            <input type="text" id="company_address" ng-model="offer.company.address">
-
-            <label for="company_description">Company description</label>
-            <textarea id="company_description" ng-model="offer.company.description"></textarea>
-
-            <label for="company_website">Company website</label>
-            <input type="text" id="company_website" ng-model="offer.company.website">
-            <!-- end -->
-
-            <label for="job_description">Job description</label>
-            <textarea id="job_description" ng-model="offer.description"></textarea>
-
-            <label for="price_min">Minimum wage</label>
-            <input type="number" id="price_min" ng-model="offer.price.min">
-
-            <label for="price_max">Maximum wage</label>
-            <input type="number" id="price_max" ng-model="offer.price.max">
-
-            <label for="type">Offer type</label>
-            <input type="text" id="type" ng-model="offer.type">
-
-            <label for="requirements">Requirements</label>
-            <button ng-click="offer.requirements.push('')">+</button>
-            <ul>
-                <li ng-repeat="requirement in offer.requirements track by $index">
-                    <input type="text" ng-model="offer.requirements[$index]">
-                    <button ng-click="pushOffRequirements($index);">-</button>
-                </li>
-            </ul>
-
-            <button ng-click="offer={};offer.requirements=[];offer.company={};isOfferFormOpen=false">Cancel</button>
-            <button type="submit" ng-click="sendOffer()">Send</button>
-        </form>
+<div >
+    <div  ng-if="loading">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-
-    <div>
-        <div  ng-if="loading">
-            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-        </div>
-        <div ng-if="!loading">
-            <div ng-repeat="offer in offers | orderBy:'dateUpdate':true">
-                <div class="{{offer.type}}"></div>
-                <div>GENERAL INFORMATION</div>
-                <div>{{offer.name}}</div>
-                <div>{{offer.email}}</div>
-                <div>{{offer.phone}}</div>
-                <div>{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
-                <div>JOB INFORMATION</div>
-                <div>{{offer.decription}}</div>
-                <div>
-                    <div>Requirements</div>
-                    <div ng-repeat="requirement in offer.requirements">{{requirement}}</div>
-                </div>
-                <div>
-                    Wage : {{offer.price.min}} - {{offer.price.max}}
-                </div>
-                <div>{{offer.type}}</div>
-                <div>COMPANY INFORMATION</div>
-                <div>{{offer.company.name}}</div>
-                <div>{{offer.company.adress}}</div>
-                <div>{{offer.company.city}}</div>
-                <div>{{offer.company.country}}</div>
-                <div>{{offer.company.description}}</div>
-                <div><a target="_blank" href="http://{{offer.company.website}}">{{offer.company.website}}</a></div>
-
-                <button ng-click="updateClick(offer)">Update</button>
-                <button>Delete</button>
+    <div ng-if="!loading" >
+        <div  ng-repeat="offer in offers | orderBy:'dateUpdate':true">
+            <div class="{{offer.type}}"></div>
+            <div><a href ng-click="routeTo('offer/'+offer.id)">{{offer.name}}</a></div>
+            <div>{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+            <div>
+                Wage : {{offer.price.min}} - {{offer.price.max}}
             </div>
+            <div>{{offer.type}}</div>
+            <div>{{offer.company.country}}</div>
+            <div>{{offer.company.city}}</div>
+            <div>{{offer.company.name}}</div>
 
         </div>
+
     </div>
 </div>
