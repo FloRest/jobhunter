@@ -1,0 +1,10 @@
+<md-button style="position: fixed; bottom: 20px; right:20px"class="md-fab md-primary" ng-click="routeTo('recipe/create')" aria-label="add">
+    <span style="color:white; font-size: 18px" class="glyphicon glyphicon-plus"></span>
+</md-button>
+<div layout="row" ng-if="loading" layout-sm="column" layout-align="space-around">
+    <md-progress-circular mode="indeterminate"></md-progress-circular>
+</div>
+<md-card ng-repeat="recipe in recipes" ng-click="routeToRecipe(recipe.id)">
+    <img src="assets/fresh_food.jpg" class="md-card-image">
+    <h2>{{recipe.name}}</h2>
+</md-card>

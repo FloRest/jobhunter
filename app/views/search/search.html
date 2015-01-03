@@ -1,0 +1,10 @@
+<form class="form-horizontal" role="form" name="searchForm" novalidate>
+
+    <input  label="Search" ng-model="search.text" placeholder="Search for {{search.type}}" type="text">
+
+    <button aria-label="search" class="md-button-colored md-primary nav-button" ng-click="searchAction()">
+        O
+    </button>
+
+    Resumes<input type="checkbox" ng-model="search.type" name="type"  ng-true-value="'offers'" ng-false-value="'resumes'">Offers
+</form>

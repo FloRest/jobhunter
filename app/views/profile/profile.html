@@ -1,0 +1,40 @@
+<div layout="row" ng-if="loading" layout-sm="column" layout-align="space-around">
+    <md-progress-circular mode="indeterminate"></md-progress-circular>
+</div>
+<div ng-if="!loading">
+    <h2>{{profile.name}}</h2>
+    <md-list>
+        <md-item>
+            <md-item-content>
+                <div class="md-tile-left">
+
+                </div>
+                <div class="md-tile-content">
+                    <h3>{{profile.email}}</h3>
+                </div>
+            </md-item-content>
+        </md-item>
+        <md-item>
+            <md-item-content>
+                <div class="md-tile-left">
+
+                </div>
+                <div class="md-tile-content">
+                    <h3>{{profile.followers}} followers</h3>
+                </div>
+            </md-item-content>
+        </md-item>
+        <md-item>
+            <md-item-content>
+                <div class="md-tile-left">
+
+                </div>
+                <div class="md-tile-content">
+                    <h3>{{profile.following}} following</h3>
+                </div>
+            </md-item-content>
+        </md-item>
+    </md-list>
+    <md-button aria-label="follow" class="normal-button" ng-if="profile.id != user.id" ng-click="follow(profile.id)">Follow</md-button>
+    <md-button aria-label="unfollow" class="normal-button" ng-if="profile.id != user.id" ng-click="unfollow(profile.id)">UnFollow</md-button>
+</div>

@@ -1,0 +1,51 @@
+<h2>Create a new recipe</h2>
+<md-sidenav component-id="right" class="md-sidenav-right" style="position: fixed">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <span style="color:#ffffff">Ingredients</span>
+            <!-- fill up the space between left and right area -->
+        </div>
+    </md-toolbar>
+    <md-list >
+        <md-item ng-repeat="ingredient in ingredients">
+            <md-button aria-label="{{ingredient.name}}" ng-click="addIngredient(ingredient)" class="md-primary nav-button">
+                {{ingredient.name}}
+            </md-button>
+        </md-item>
+    </md-list>
+</md-sidenav>
+
+<form class="form-horizontal" role="form" name="loginForm" novalidate>
+    <div id="formFields">
+        <md-text-float class="full-width" label="Name" ng-model="recipe.name" type="text"></md-text-float>
+        <md-text-float class="full-width" label="For" ng-model="recipe.for" type="number"></md-text-float>
+        <div id="ingredients">
+            <div style="height: 30px; margin-top: 20px;">
+                <label style="color: rgba(0, 0, 0, 0.26); float: left; padding-top: 7px; margin-right: 10px">Ingredients</label>
+                <md-button aria-label="plus" style="height:30px; font-size: 20px;" class="md-button-colored md-primary" ng-click="toggleIngredientsList()">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                </md-button>
+            </div>
+            <span flex></span>
+            <ul>
+                <li style="visibility: hidden"></li>
+                <li ng-repeat="ingredient in recipe.ingredients">
+                    <span>{{ingredient.name}}</span>
+                </li>
+            </ul>
+        </div>
+        <div id="steps">
+            <div style="height: 30px; margin-top: 20px;">
+                <label style="color: rgba(0, 0, 0, 0.26); float: left; padding-top: 7px; margin-right: 10px">Steps</label>
+                <md-button aria-label="plus" style="height:30px; font-size: 20px;" class="md-button-colored md-primary" ng-click="addStep()">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                </md-button>
+            </div>
+            <md-text-float ng-repeat="step in steps" class="full-width" label="" ng-model="recipe.steps[step]" type="text"></md-text-float>
+        </div>
+    </div>
+
+    <md-button aria-label="signIn" class="md-button-colored md-primary nav-button" ng-click="createRecipe(recipe)">
+        Submit
+    </md-button>
+</form>
