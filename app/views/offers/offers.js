@@ -6,29 +6,22 @@ viewModule
             $scope.offer.requirements = [];
             $scope.loading = true;
             $scope.offers = [];
-            $scope.updateOffer = false;
 
             $scope.sendOffer = function() {
-                if ($scope.updateOffer == false) {
-                    offersService.create($scope.offer).success(function(data, err) {
-                        $scope.offers.push(data);
-                        toastService.toast('You successfully created a job offer !');
-                        $scope.isOfferFormOpen = false;
-                    }).error(function() {
-                        toastService.toast('Something is wrong. Check the fields.');
-                    });
-                } else {
-                    offersService.update($scope.offer.id, $scope.offer).success(function(data,err) {
-                        $scope.updateOffer = false;
-                        $scope.offer = {};
-                        $scope.offer.company = {};
-                        $scope.offer.requirements = [];
-                        toastService.toast('Job offer updated.');
-                        $scope.isOfferFormOpen = false;
-                    }).error(function() {
-                        toastService.toast('Something is wrong. Did you forgot the secret ?');
-                    })
-                }
+                offersService.create($scope.offer).success(function(data, err) {
+                    $scope.offers.push(data);
+                    toastService.toast('You successfully created a job offer !');
+                    $scope.isOfferFormOpen = false;
+                }).error(function() {
+                    toastService.toast('Something is wrong. Check the fields.');
+                });
+            };
+
+            $scope.cancelOffer = function() {
+                $scope.offer={};
+                $scope.offer.requirements=[];
+                $scope.offer.company={};
+                $scope.isOfferFormOpen = false;
             };
 
             $scope.pushOffRequirements = function(index) {

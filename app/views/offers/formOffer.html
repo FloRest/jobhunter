@@ -52,6 +52,6 @@
     <label for="secret">Secret</label>
     <input type="password" id="secret" ng-model="offer.secret">
 
-    <button ng-click="offer={};offer.requirements=[];offer.company={};isOfferFormOpen=false">Cancel</button>
+    <button ng-click="isOfferFormOpen=false;cancelOffer()">Cancel</button>
     <button type="submit" ng-click="sendOffer()">Send</button>
 </form>

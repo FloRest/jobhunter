@@ -1,0 +1,24 @@
+<button ng-click="isResumeFormOpen = !isResumeFormOpen">Post your resume</button>
+
+<div ng-show="isResumeFormOpen" id="replyForm" >
+    <ng-include src=" 'views/resumes/formResume.html' "></ng-include>
+</div>
+
+<div >
+    <div  ng-if="loading">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div ng-if="!loading" >
+        <div ng-repeat="resume in resumes | orderBy:'dateUpdate':true">
+            <div><a href ng-click="routeTo('resume/'+resume.id)">{{resume.name}}</a></div>
+            <div>{{resume.lastName}}</div>
+            <div>{{resume.country}}</div>
+            <div ng-repeat="city in resume.cities">{{city}}</div>
+            <div ng-repeat="diplom in resume.diploms">{{diplom}}</div>
+            <div ng-repeat="skill in resume.skills">{{skill}}</div>
+
+            <div>{{resume.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+        </div>
+
+    </div>
+</div>

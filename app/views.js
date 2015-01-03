@@ -18,24 +18,15 @@ var viewModule = angular.module('huntaxuiba.views', ['ngRoute', 'ngMaterial', 'h
             controller: 'OffersController'
         });
 
-        $routeProvider.when('/offer/:id?', {
+        $routeProvider.when('/offer/:id', {
             templateUrl: 'views/offers/offer.html',
             controller: 'OfferController'
         });
 
-        $routeProvider.when('/recipes', {
-            templateUrl: 'views/recipes/recipes.html',
-            controller: 'RecipesController'
-        });
 
-        $routeProvider.when('/recipe/create', {
-            templateUrl: 'views/recipes/recipeForm.html',
-            controller: 'RecipeFormController'
-        });
-
-        $routeProvider.when('/recipe/:id', {
-            templateUrl: 'views/recipes/recipe.html',
-            controller: 'RecipeController'
+        $routeProvider.when('/resume/:id', {
+            templateUrl: 'views/resumes/resume.html',
+            controller: 'ResumeController'
         });
 
         $routeProvider.when('/parameters', {

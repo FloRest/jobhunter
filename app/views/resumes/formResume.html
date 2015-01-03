@@ -1,0 +1,91 @@
+<form  role="form" name="offerForm" novalidate>
+    <label for="name">Name</label>
+    <input type="text" id="name" ng-model="resume.name">
+
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" ng-model="resume.lastName">
+
+    <label for="email">Mail</label>
+    <input type="email" id="email" ng-model="resume.email">
+
+    <label for="birthDate">Birthdate</label>
+    <input type="date" id="birthDate" ng-model="resume.birthDate">
+
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" ng-model="resume.phone">
+
+    <label for="about">About you</label>
+    <textarea id="about" ng-model="resume.about"></textarea>
+
+    <label for="country">Country</label>
+    <input type="text" id="country" ng-model="resume.country">
+
+    <label for="language">Languages</label>
+    <button ng-click="resume.language.push('')">+</button>
+    <ul>
+        <li ng-repeat="languag in resume.language track by $index">
+            <input type="text" ng-model="resume.language[$index]">
+            <button ng-click="pushOff('language',$index);">-</button>
+        </li>
+    </ul>
+
+    <label for="skills">Skills</label>
+    <button ng-click="resume.skills.push('')">+</button>
+    <ul>
+        <li ng-repeat="skill in resume.skills track by $index">
+            <input type="text" ng-model="resume.skills[$index]">
+            <button ng-click="pushOff('skills',$index);">-</button>
+        </li>
+    </ul>
+
+    <label for="experiences">Experiences</label>
+    <button ng-click="resume.experiences.push('')">+</button>
+    <ul>
+        <li ng-repeat="experience in resume.experiences track by $index">
+            <input type="text" ng-model="resume.experiences[$index]">
+            <button ng-click="pushOff('experiences',$index);">-</button>
+        </li>
+    </ul>
+
+    <label for="hobbies">Hobbies</label>
+    <button ng-click="resume.hobbies.push('')">+</button>
+    <ul>
+        <li ng-repeat="hobbie in resume.hobbies track by $index">
+            <input type="text" ng-model="resume.hobbies[$index]">
+            <button ng-click="pushOff('hobbies',$index);">-</button>
+        </li>
+    </ul>
+
+    <label for="studies">Studies</label>
+    <button ng-click="resume.studies.push('')">+</button>
+    <ul>
+        <li ng-repeat="studie in resume.studies track by $index">
+            <input type="text" ng-model="resume.studies[$index]">
+            <button ng-click="pushOff('studies',$index);">-</button>
+        </li>
+    </ul>
+
+    <label for="diploms">Diploms</label>
+    <button ng-click="resume.diploms.push('')">+</button>
+    <ul>
+        <li ng-repeat="diplom in resume.diploms track by $index">
+            <input type="text" ng-model="resume.diploms[$index]">
+            <button ng-click="pushOff('diploms',$index);">-</button>
+        </li>
+    </ul>
+
+    <label for="cities">Cities</label>
+    <button ng-click="resume.cities.push('')">+</button>
+    <ul>
+        <li ng-repeat="citie in resume.cities track by $index">
+            <input type="text" ng-model="resume.cities[$index]">
+            <button ng-click="pushOff('cities',$index);">-</button>
+        </li>
+    </ul>
+
+    <label for="secret">Secret</label>
+    <input type="password" id="secret" ng-model="resume.secret">
+
+    <button ng-click="initResume();isOfferFormOpen=false">Cancel</button>
+    <button type="submit" ng-click="sendResume()">Send</button>
+</form>
