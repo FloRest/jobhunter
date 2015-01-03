@@ -11,8 +11,18 @@
     <div>{{resume.lastName}}</div>
     <div>{{resume.country}}</div>
     <div ng-repeat="city in resume.cities">{{city}}</div>
+    <div>{{resume.birthDate}}</div>
+    <div>{{resume.email}}</div>
+    <div>{{resume.phone}}</div>
+
+    <div ng-repeat="languag in resume.language">{{languag}}</div>
     <div ng-repeat="diplom in resume.diploms">{{diplom}}</div>
+    <div ng-repeat="experience in resume.experiences">{{experience}}</div>
     <div ng-repeat="skill in resume.skills">{{skill}}</div>
+    <div ng-repeat="hobbie in resume.hobbies">{{hobbie}}</div>
+    <div ng-repeat="studie in resume.studies">{{studie}}</div>
+
+    <div>{{resume.about}}</div>
 
     <div>{{resume.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
 
