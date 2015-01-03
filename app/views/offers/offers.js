@@ -9,10 +9,9 @@ viewModule
             $scope.updateOffer = false;
 
             $scope.sendOffer = function() {
-                console.log($scope.offer);
                 if ($scope.updateOffer == false) {
                     offersService.create($scope.offer).success(function(data, err) {
-                        $scope.offers.push(data.data);
+                        $scope.offers.push(data);
                         toastService.toast('You successfully created a job offer !');
                         $scope.isOfferFormOpen = false;
                     }).error(function() {
@@ -37,9 +36,7 @@ viewModule
             };
 
             offersService.getAll().then(function(data, err) {
-                console.log(data);
                 $scope.offers = $scope.offers.concat(data.data.hits);
-                console.log($scope.offers);
                 $scope.loading=false;
             });
 
@@ -47,6 +44,21 @@ viewModule
                 $scope.isOfferFormOpen = true;
                 $scope.updateOffer = true;
                 $scope.offer= offer;
+            };
+
+            var firstDelete = true;
+            $scope.deleteOffer = function(offer) {
+                if (firstDelete) {
+                    firstDelete = false;
+                } else {
+                    offer.secret = $scope.secretDelete;
+                    offersService.delete(offer.id, offer).success(function() {
+
+                    }).error(function() {
+
+                    });
+                    firstDelete = true;
+                }
             }
 
         }]

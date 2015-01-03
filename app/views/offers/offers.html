@@ -73,7 +73,7 @@
             <div>{{offer.phone}}</div>
             <div>{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
             <div>JOB INFORMATION</div>
-            <div>{{offer.decription}}</div>
+            <div>{{offer.description}}</div>
             <div>
                 <div>Requirements</div>
                 <div ng-repeat="requirement in offer.requirements">{{requirement}}</div>
@@ -91,7 +91,8 @@
             <div><a target="_blank" href="http://{{offer.company.website}}">{{offer.company.website}}</a></div>
 
             <button ng-click="updateClick(offer)">Update</button>
-            <button>Delete</button>
+            <input ng-init="showSecretDeleteInput=false" ng-show="showSecretDeleteInput" ng-model="secretDelete">
+            <button ng-click="deleteOffer(offer);showSecretDeleteInput=true">Delete</button>
         </div>
 
     </div>
