@@ -1,21 +1,23 @@
 viewModule
-    .controller('OfferController', ['$scope', '$routeParams', 'offersService', 'toastService',
-        function($scope, $routeParams, offersService, toastService) {
-
+    .controller('ResumeController', ['$scope', '$routeParams', 'resumesService', 'toastService',
+        function($scope, $routeParams, resumesService, toastService) {
             $scope.loading = true;
 
-            offersService.get($routeParams.id).then(function(data) {
-                $scope.offer = data.data;
+            resumesService.get($routeParams.id).then(function(data) {
+                $scope.resume = data.data;
                 $scope.loading = false;
-
             });
 
-            $scope.cancelOffer = function() {
-                $scope.isOfferFormOpen = false;
+            $scope.cancelResume = function() {
+                $scope.isResumeFormOpen = false;
             };
 
             $scope.updateClick = function() {
-                $scope.isOfferFormOpen = true;
+                $scope.isResumeFormOpen = true;
+            };
+
+            $scope.pushOff = function(name, index) {
+                $scope.resume[name].splice(index, 1);
             };
 
             var firstDelete = true;
@@ -33,13 +35,9 @@ viewModule
                 }
             };
 
-            $scope.pushOffRequirements = function(index) {
-                $scope.offer.requirements.splice(index, 1);
-            };
-
-            $scope.sendOffer = function() {
-                offersService.update($scope.offer.id, $scope.offer).success(function(data,err) {
-                    toastService.toast('Job offer updated.');
+            $scope.sendResume = function() {
+                resumesService.update($scope.resume.id, $scope.resume).success(function(data,err) {
+                    toastService.toast('Resume updated.');
                     $scope.isOfferFormOpen = false;
                 }).error(function() {
                     toastService.toast('Something is wrong. Did you forgot the secret ?');

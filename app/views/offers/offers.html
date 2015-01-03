@@ -1,10 +1,10 @@
 <button ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
 
 <div ng-show="isOfferFormOpen" id="replyForm" >
-    <ng-include src=" 'views/offerS/formOffer.html' "></ng-include>
+    <ng-include src=" 'views/offers/formOffer.html' "></ng-include>
 </div>
 
-<div >
+<div>
     <div  ng-if="loading">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
@@ -20,8 +20,6 @@
             <div>{{offer.company.country}}</div>
             <div>{{offer.company.city}}</div>
             <div>{{offer.company.name}}</div>
-
         </div>
-
     </div>
 </div>
