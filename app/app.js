@@ -7,6 +7,7 @@ CONFIG.api = {
 };
 CONFIG.api.route = CONFIG.api.endpoint + ':' + CONFIG.api.port;
 
+
 // Declare app level module which depends on views, and components
 angular.module('huntaxuiba', [
   'ngRoute',
@@ -17,7 +18,6 @@ angular.module('huntaxuiba', [
   'huntaxuiba.apiService',
   'huntaxuiba.toastService',
   'huntaxuiba.views',
-  'ui.scrollToTopWhen',
   'toggle-switch'
 ]).
 controller('LayoutController', function($scope, $mdSidenav, $location,toastService) {
