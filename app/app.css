@@ -78,3 +78,54 @@ md-card {
 
 }
 /**/
+
+
+/** NICO **/
+
+.searchBar {
+  position: relative;
+  height: auto;
+  border: none;
+  padding: 0;
+}
+.searchBar input {
+  max-width: 100%;
+  padding-right: 32px; /*12 + 20*/
+  font-size: 20px;
+}
+.searchBar button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: auto;
+  border: none;
+  background: none;
+  font-size: 20px;
+  line-height: 34px;
+}
+
+.homeSearchBar {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+
+.homeSearchBar input {
+  height: 50px;  
+}
+
+.homeSearchBar button {
+  line-height: 50px;  
+}
+
+
+.pageView {
+  margin: 10px;
+}
+
+.toggleFormButton {
+  width: 100%;
+}
+
+/** NICO END**/
