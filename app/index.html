@@ -29,7 +29,7 @@
     <md-sidenav component-id="left" class="md-sidenav-left" is-locked-open="$media('md')">
       <md-toolbar md-scroll-shrink>
         <div class="md-toolbar-tools">
-          <span style="color:#ffffff" ng-click="routeTo('search')">Hunta Xiuba</span>
+          <span style="color:#ffffff; cursor: pointer" ng-click="routeTo('search')">Hunta Xiuba</span>
           <!-- fill up the space between left and right area -->
           <span flex></span>
         </div>
@@ -68,7 +68,7 @@
           <span flex></span>
         </div>
       </md-toolbar>
-        <div ng-view class=""></div>
+        <div ng-view class="" style="min-height: 50%"></div>
     </md-content>
       </section>
   </div>
@@ -92,6 +92,7 @@
   <script src="components/authentication/authentication.js"></script>
   <!-- api components -->
   <script src="components/apiRest/api.js"></script>
+  <script src="components/apiRest/offers/offers.js"></script>
   <script src="components/apiRest/recipes/recipes.js"></script>
   <script src="components/apiRest/ingredients/ingredients.js"></script>
   <script src="components/apiRest/users/users.js"></script>
