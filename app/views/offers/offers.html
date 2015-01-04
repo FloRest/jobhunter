@@ -9,7 +9,7 @@
         <div  ng-if="loading">
             <md-progress-circular md-mode="indeterminate"></md-progress-circular>
         </div>
-        <div ng-if="!loading" class="row" style="padding:15px">
+        <div ng-if="!loading" class="row">
             <div class="offer offer-cdi col-md-6 col-sm-12 {{offer.type}}" ng-repeat="offer in offers | orderBy:'dateUpdate':true">
                 <div class="aside">
                     <div class="type">{{offer.type}}</div>

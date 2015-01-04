@@ -168,5 +168,15 @@ ul {
   text-align: right;
 }
 
+.row {
+  margin: 0;
+}
+
+.formController > * {
+  float: right;
+}
+.formController > input {
+  width: auto;
+}
 
 /** NICO END**/

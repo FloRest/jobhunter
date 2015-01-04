@@ -1,40 +1,40 @@
 <form  class="formContainer row" role="form" name="offerForm" novalidate>
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="name">Name</label>
         <input class="form-control"  type="text" id="name" ng-model="resume.name">
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="lastName">Last Name</label>
         <input class="form-control"  type="text" id="lastName" ng-model="resume.lastName">
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="email">Mail</label>
         <input class="form-control"  type="email" id="email" ng-model="resume.email">
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="birthDate">Birthdate</label>
         <input class="form-control"  type="date" id="birthDate" ng-model="resume.birthDate">
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="phone">Phone</label>
         <input class="form-control"  type="text" id="phone" ng-model="resume.phone">
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="about">About you</label>
         <textarea class="form-control" id="about" ng-model="resume.about"></textarea>
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="country">Country</label>
         <input class="form-control"  type="text" id="country" ng-model="resume.country">
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="language">Languages</label>
         <button class="btn"  ng-click="resume.language.push('')">+</button>
         <ul>
@@ -45,7 +45,7 @@
         </ul>
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="skills">Skills</label>
         <button class="btn"  ng-click="resume.skills.push('')">+</button>
         <ul>
@@ -56,7 +56,7 @@
         </ul>
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="experiences">Experiences</label>
         <button class="btn"  ng-click="resume.experiences.push('')">+</button>
         <ul>
@@ -67,7 +67,7 @@
         </ul>
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="hobbies">Hobbies</label>
         <button class="btn"  ng-click="resume.hobbies.push('')">+</button>
         <ul>
@@ -78,7 +78,7 @@
         </ul>
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="studies">Studies</label>
         <button class="btn"  ng-click="resume.studies.push('')">+</button>
         <ul>
@@ -89,7 +89,7 @@
         </ul>
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="diploms">Diploms</label>
         <button class="btn"  ng-click="resume.diploms.push('')">+</button>
         <ul>
@@ -100,7 +100,7 @@
         </ul>
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
+    <div class="col-md-6 col-sm-12 formInput">
         <label for="cities">Cities</label>
         <button class="btn"  ng-click="resume.cities.push('')">+</button>
         <ul>
@@ -111,13 +111,11 @@
         </ul>
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput formInput">
-        <label for="secret">Secret</label>
-        <input class="form-control"  type="password" id="secret" ng-model="resume.secret">
-    </div>
-
     <div class="col-md-12 col-sm-12 formController">
-        <button class="btn btn-primary" type="submit" ng-click="sendResume()">Send</button>
-        <button class="btn" ng-click="initResume();isOfferFormOpen=false">Cancel</button>
+            <label for="secret">Secret</label>
+            <input class="form-control"  type="password" id="secret" ng-model="resume.secret">
+            <button class="btn btn-primary" type="submit" ng-click="sendResume()">Send</button>
+            <button class="btn" ng-click="initResume();isOfferFormOpen=false">Cancel</button>
+        </div>
     </div>
 </form>

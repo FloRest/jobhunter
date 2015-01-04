@@ -2,7 +2,7 @@
 
 var CONFIG = {};
 CONFIG.api = {
-  endpoint : "http://localhost",
+  endpoint : "http://172.30.2.73",
   port : "1338"
 };
 CONFIG.api.route = CONFIG.api.endpoint + ':' + CONFIG.api.port;
