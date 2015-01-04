@@ -1,6 +1,6 @@
 viewModule
-    .controller('ResumeController', ['$scope', '$routeParams', 'resumesService', 'toastService',
-        function($scope, $routeParams, resumesService, toastService) {
+    .controller('ResumeController', ['$scope', '$routeParams', 'resumesService', 'toastService', '$location',
+        function($scope, $routeParams, resumesService, toastService, $location) {
             $scope.loading = true;
 
             resumesService.get($routeParams.id).then(function(data) {
@@ -21,15 +21,16 @@ viewModule
             };
 
             var firstDelete = true;
-            $scope.deleteOffer = function() {
+            $scope.deleteResume = function() {
                 if (firstDelete) {
                     firstDelete = false;
                 } else {
-                    $scope.offer.secret = $scope.secretDelete;
-                    offersService.delete($scope.offer.id, $scope.offer).success(function() {
-
+                    console.log($scope.resume)
+                    resumesService.delete($scope.resume.id, $scope.resume.secret).success(function() {
+                        toastService.toast('Resume deleted.');
+                        $location.path('/resumes');
                     }).error(function() {
-
+                        toastService.toast('Can not delete. Did you forgot the secret ?')
                     });
                     firstDelete = true;
                 }

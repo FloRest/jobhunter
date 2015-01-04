@@ -11,7 +11,7 @@
     <div>{{resume.lastName}}</div>
     <div>{{resume.country}}</div>
     <div ng-repeat="city in resume.cities">{{city}}</div>
-    <div>{{resume.birthDate}}</div>
+    <div>{{resume.birthDate  | date:'dd/MM/yyyy HH:mm:ss'}}</div>
     <div>{{resume.email}}</div>
     <div>{{resume.phone}}</div>
 
@@ -27,6 +27,6 @@
     <div>{{resume.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
 
     <button ng-click="updateClick(resume)">Update</button>
-    <input ng-init="showSecretDeleteInput=false" ng-show="showSecretDeleteInput" ng-model="secretDelete">
-    <button ng-click="deleteResume(Resume);showSecretDeleteInput=true">Delete</button>
+    <input type="password"  ng-show="showSecretDeleteInput" ng-model="resume.secret">
+    <button ng-click="deleteResume(resume);showSecretDeleteInput=true">Delete</button>
 </div>
