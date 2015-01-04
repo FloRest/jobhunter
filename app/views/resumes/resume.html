@@ -1,4 +1,4 @@
-<div class="pageView">
+<div class="pageView soloPage">
     <div  ng-if="loading">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
@@ -8,9 +8,9 @@
             <ng-include src=" 'views/resumes/formResume.html' "></ng-include>
         </div>
 
-        <div>{{resume.name}}</div>
-        <div>{{resume.lastName}}</div>
-        <div>{{resume.country}}</div>
+        <h1>{{resume.name}} {{resume.lastName}}</h2>
+        <div><span>Country</span> {{resume.country}}</div>
+        <div><span>
         <div ng-repeat="city in resume.cities">{{city}}</div>
         <div>{{resume.birthDate  | date:'dd/MM/yyyy HH:mm:ss'}}</div>
         <div>{{resume.email}}</div>
