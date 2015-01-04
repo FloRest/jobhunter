@@ -4,7 +4,7 @@
     </div>
     <div ng-if="!loading" >
 
-        <div ng-show="isOfferFormOpen">
+        <div collapse="!isOfferFormOpen">
             <ng-include src=" 'views/offerS/formOffer.html' "></ng-include>
         </div>
 
