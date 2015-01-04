@@ -18,7 +18,7 @@ angular.module('huntaxuiba', [
   'huntaxuiba.apiService',
   'huntaxuiba.toastService',
   'huntaxuiba.views',
-  "toggle-switch"
+    'ui.bootstrap'
 ]).
 controller('LayoutController', function($scope, $mdSidenav, $location,searchService, $rootScope) {
   $scope.openLeftMenu = function() {
