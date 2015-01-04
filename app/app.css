@@ -82,6 +82,11 @@ md-card {
 
 /** NICO **/
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 .searchBar {
   position: relative;
   height: auto;
@@ -97,11 +102,10 @@ md-card {
   position: absolute;
   top: 0;
   right: 0;
-  height: auto;
+  height: 100%;
   border: none;
   background: none;
   font-size: 20px;
-  line-height: 34px;
 }
 
 .homeSearchBar {
@@ -127,5 +131,42 @@ md-card {
 .toggleFormButton {
   width: 100%;
 }
+
+.switchSearch {
+  margin-top: 10px;
+  text-align: center;
+  line-height: 
+}
+
+.formInput {
+  margin-top: 10px;
+}
+
+.offer {
+  margin-top: 10px;
+  margin-left: 0;
+  position: relative;
+  padding-right: 100px;
+  padding-left: 10px;
+}
+
+.offer-cdi {
+  border-left: lightgreen 10px solid;
+}
+
+.aside {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+}
+.offer h3 {
+  margin: 0;
+}
+
+.formController {
+  text-align: right;
+}
+
 
 /** NICO END**/

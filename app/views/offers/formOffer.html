@@ -1,57 +1,100 @@
-<form  role="form" name="offerForm" novalidate>
-    <label for="name">Offer title</label>
-    <input type="text" id="name" ng-model="offer.name">
+<form  class="formContainer row" role="form" name="offerForm" novalidate>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="name">Offer title</label>
+        <input class="form-control" type="text" id="name" ng-model="offer.name">
+    </div>
 
-    <label for="email">Mail</label>
-    <input type="email" id="email" ng-model="offer.email">
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="email">Mail</label>
+        <input class="form-control" type="email" id="email" ng-model="offer.email">
+    </div>
 
-    <label for="phone">Phone</label>
-    <input type="text" id="phone" ng-model="offer.phone">
+     
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="phone">Phone</label>
+        <input class="form-control" type="text" id="phone" ng-model="offer.phone">
+    </div>
 
     <!-- COMPANY -->
-    <label for="company_name">Company name</label>
-    <input type="text" id="company_name" ng-model="offer.company.name">
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_name">Company name</label>
+        <input class="form-control"  type="text" id="company_name" ng-model="offer.company.name">
+    </div>
 
-    <label for="company_city">Company city</label>
-    <input type="text" id="company_city" ng-model="offer.company.city">
+     
 
-    <label for="company_country">Company country</label>
-    <input type="text" id="company_country" ng-model="offer.company.country">
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_city">Company city</label>
+        <input class="form-control"  type="text" id="company_city" ng-model="offer.company.city">
+    </div>
 
-    <label for="company_address">Company address</label>
-    <input type="text" id="company_address" ng-model="offer.company.address">
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_country">Company country</label>
+        <input  class="form-control" type="text" id="company_country" ng-model="offer.company.country">
+    </div>
 
-    <label for="company_description">Company description</label>
-    <textarea id="company_description" ng-model="offer.company.description"></textarea>
+     
 
-    <label for="company_website">Company website</label>
-    <input type="text" id="company_website" ng-model="offer.company.website">
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_address">Company address</label>
+        <input  class="form-control" type="text" id="company_address" ng-model="offer.company.address">
+    </div>
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_description">Company description</label>
+        <textarea  class="form-control" id="company_description" ng-model="offer.company.description"></textarea>
+    </div>
+
+     
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_website">Company website</label>
+        <input  class="form-control" type="text" id="company_website" ng-model="offer.company.website">
+    </div>
+
     <!-- end -->
 
-    <label for="job_description">Job description</label>
-    <textarea id="job_description" ng-model="offer.description"></textarea>
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="job_description">Job description</label>
+        <textarea class="form-control"  id="job_description" ng-model="offer.description"></textarea>
+    </div>
 
-    <label for="price_min">Minimum wage</label>
-    <input type="number" id="price_min" ng-model="offer.price.min">
+     
 
-    <label for="price_max">Maximum wage</label>
-    <input type="number" id="price_max" ng-model="offer.price.max">
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="price_min">Minimum wage</label>
+        <input class="form-control"  type="number" id="price_min" ng-model="offer.price.min">
+    </div>
 
-    <label for="type">Offer type</label>
-    <input type="text" id="type" ng-model="offer.type">
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="price_max">Maximum wage</label>
+        <input  class="form-control" type="number" id="price_max" ng-model="offer.price.max">
+    </div>
 
-    <label for="requirements">Requirements</label>
-    <button ng-click="offer.requirements.push('')">+</button>
-    <ul>
-        <li ng-repeat="requirement in offer.requirements track by $index">
-            <input type="text" ng-model="offer.requirements[$index]">
-            <button ng-click="pushOffRequirements($index);">-</button>
-        </li>
-    </ul>
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="type">Offer type</label>
+        <input  class="form-control" type="text" id="type" ng-model="offer.type">
+    </div>
 
-    <label for="secret">Secret</label>
-    <input type="password" id="secret" ng-model="offer.secret">
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="requirements">Requirements</label>
+        <button class="btn" ng-click="offer.requirements.push('')">+</button>
+        <ul>
+            <li class="searchBar" ng-repeat="requirement in offer.requirements track by $index">
+                <input  class="form-control" type="text" ng-model="offer.requirements[$index]">
+                <button class="btn" ng-click="pushOffRequirements($index);">-</button>
+            </li>
+        </ul>
+    </div>
 
-    <button ng-click="isOfferFormOpen=false;cancelOffer()">Cancel</button>
-    <button type="submit" ng-click="sendOffer()">Send</button>
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="secret">Secret</label>
+        <input type="password" id="secret" ng-model="offer.secret">
+    </div>
+
+    <div class="col-md-12 col-sm-12 formController">
+        <button class="btn btn-primary" type="submit" ng-click="sendOffer()">Send</button>
+        <button class="btn" ng-click="isOfferFormOpen=false;cancelOffer()">Cancel</button>
+    </div>
 </form>

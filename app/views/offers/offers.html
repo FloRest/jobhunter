@@ -1,25 +1,94 @@
-<button ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
+<div class="pageView">
+    <button class="toggleFormButton btn btn-primary btn-lg" ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
 
-<div ng-show="isOfferFormOpen" id="replyForm" >
-    <ng-include src=" 'views/offers/formOffer.html' "></ng-include>
-</div>
-
-<div>
-    <div  ng-if="loading">
-        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    <div ng-show="isOfferFormOpen" id="replyForm" >
+        <ng-include src=" 'views/offers/formOffer.html' "></ng-include>
     </div>
-    <div ng-if="!loading" >
-        <div  ng-repeat="offer in offers | orderBy:'dateUpdate':true">
-            <div class="{{offer.type}}"></div>
-            <div><a href ng-click="routeTo('offer/'+offer.id)">{{offer.name}}</a></div>
-            <div>{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
-            <div>
-                Wage : {{offer.price.min}} - {{offer.price.max}}
+
+    <div>
+        <div  ng-if="!loading">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div ng-if="loading" class="row" style="padding:15px">
+            <div class="offer offer-cdi col-md-6 col-sm-12">
+                <div class="aside">
+                    <div class="type">CDI</div>
+                    <div class="date">dd/MM/yyyy HH:mm:ss</div>
+                </div>
+                <h3><a href ng-click="routeTo('offer/'+offer.id)">1 Front end dev qui fera la pute</a></h3>
+                <div class="adress">
+                    France, Toulouse, <span>Carotte</span>
+                </div>
+                <div class="wage">
+                    Wage : 300 - 500
+                </div>
             </div>
-            <div>{{offer.type}}</div>
-            <div>{{offer.company.country}}</div>
-            <div>{{offer.company.city}}</div>
-            <div>{{offer.company.name}}</div>
+            <div class="offer offer-cdi col-md-6 col-sm-12">
+                <div class="aside">
+                    <div class="type">CDI</div>
+                    <div class="date">dd/MM/yyyy HH:mm:ss</div>
+                </div>
+                <h3><a href ng-click="routeTo('offer/'+offer.id)">1 Front end dev qui fera la pute</a></h3>
+                <div class="adress">
+                    France, Toulouse, <span>Carotte</span>
+                </div>
+                <div class="wage">
+                    Wage : 300 - 500
+                </div>
+            </div>
+            <div class="clearfix visible-sm"></div>
+            <div class="offer offer-cdi col-md-6 col-sm-12">
+                <div class="aside">
+                    <div class="type">CDI</div>
+                    <div class="date">dd/MM/yyyy HH:mm:ss</div>
+                </div>
+                <h3><a href ng-click="routeTo('offer/'+offer.id)">1 Front end dev qui fera la pute</a></h3>
+                <div class="adress">
+                    France, Toulouse, <span>Carotte</span>
+                </div>
+                <div class="wage">
+                    Wage : 300 - 500
+                </div>
+            </div>
+            <div class="offer offer-cdi col-md-6 col-sm-12">
+                <div class="aside">
+                    <div class="type">CDI</div>
+                    <div class="date">dd/MM/yyyy HH:mm:ss</div>
+                </div>
+                <h3><a href ng-click="routeTo('offer/'+offer.id)">1 Front end dev qui fera la pute</a></h3>
+                <div class="adress">
+                    France, Toulouse, <span>Carotte</span>
+                </div>
+                <div class="wage">
+                    Wage : 300 - 500
+                </div>
+            </div>
+            <div class="clearfix visible-sm"></div>
+            <div class="offer offer-cdi col-md-6 col-sm-12">
+                <div class="aside">
+                    <div class="type">CDI</div>
+                    <div class="date">dd/MM/yyyy HH:mm:ss</div>
+                </div>
+                <h3><a href ng-click="routeTo('offer/'+offer.id)">1 Front end dev qui fera la pute</a></h3>
+                <div class="adress">
+                    France, Toulouse, <span>Carotte</span>
+                </div>
+                <div class="wage">
+                    Wage : 300 - 500
+                </div>
+            </div>
+            <div  ng-repeat="offer in offers | orderBy:'dateUpdate':true">
+                <div class="{{offer.type}}"></div>
+                <div><a href ng-click="routeTo('offer/'+offer.id)">{{offer.name}}</a></div>
+                <div>{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+                <div>
+                    Wage : {{offer.price.min}} - {{offer.price.max}}
+                </div>
+                <div>{{offer.type}}</div>
+                <div>{{offer.company.country}}</div>
+                <div>{{offer.company.city}}</div>
+                <div>{{offer.company.name}}</div>
+            </div>
         </div>
     </div>
 </div>
