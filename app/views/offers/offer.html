@@ -28,8 +28,8 @@
         <div><span>Description : </span>{{offer.company.description}}</div>
         <div><span>Website : </span><a target="_blank" href="http://{{offer.company.website}}">{{offer.company.website}}</a></div>
 
-        <button class="btn" ng-click="updateClick()">Update</button>
+        <button class="btn btn-primary" ng-click="updateClick()">Update</button>
         <input type="password" ng-show="showSecretDeleteInput" ng-model="offer.secret">
-        <button class="btn btn-danger" ng-click="deleteOffer(offer);showSecretDeleteInput=true">Delete</button>
+        <button class="btn btn" ng-click="deleteOffer(offer);showSecretDeleteInput=true">Delete</button>
     </div>
 </div>
