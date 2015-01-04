@@ -1,6 +1,6 @@
 viewModule
-    .controller('OffersController', ['$scope', '$routeParams', 'offersService', 'toastService', '$location',
-        function($scope, $routeParams, offersService, toastService, $location) {
+    .controller('OffersController', ['$scope', '$routeParams', 'offersService', 'toastService', '$location', 'searchService',
+        function($scope, $routeParams, offersService, toastService, $location, searchService) {
             $scope.offer = {};
             $scope.offer.company = {};
             $scope.offer.requirements = [];
@@ -28,12 +28,39 @@ viewModule
                 $scope.offer.requirements.splice(index, 1);
             };
 
-            offersService.getAll().then(function(data, err) {
-                $scope.offers = $scope.offers.concat(data.data.hits);
-                $scope.loading=false;
+            var search = searchService.getSearch();
+            if (search) {
+                searchService.basicSearch(search.type, search.text).success(function(data) {
+                    $scope.offers = data.hits;
+                    $scope.loading = false;
+                });
+                searchService.setSearch(null);
+            }else {
+                offersService.getAll().success(function(data){
+                    $scope.offers = $scope.offers.concat(data.hits);
+                    $scope.loading = false;
+                });
+            }
+
+            $scope.$on('offers', function(event, args) {
+                $scope.loading = true;
+                offersService.getAll().success(function(data){
+                    $scope.offers = data.hits;
+                    $scope.loading = false;
+                });
             });
 
-
+            $scope.$on('search', function(event, search) {
+                if (!search)
+                return;
+               if (search.type == 'offers') {
+                   $scope.loading = true;
+                   searchService.basicSearch(search.type, search.text).success(function(data) {
+                       $scope.offers = data.hits;
+                       $scope.loading = false;
+                   });
+               }
+            });
 
             $scope.routeTo = function(route) {
                 $location.path('/'+route);

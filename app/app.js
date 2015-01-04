@@ -2,7 +2,7 @@
 
 var CONFIG = {};
 CONFIG.api = {
-  endpoint : "http://172.30.2.73",
+  endpoint : "http://localhost",
   port : "1338"
 };
 CONFIG.api.route = CONFIG.api.endpoint + ':' + CONFIG.api.port;
@@ -17,17 +17,18 @@ angular.module('huntaxuiba', [
   'huntaxuiba.authService',
   'huntaxuiba.apiService',
   'huntaxuiba.toastService',
-  'huntaxuiba.views',
-  'toggle-switch'
+  'huntaxuiba.views'
 ]).
-controller('LayoutController', function($scope, $mdSidenav, $location,toastService) {
+controller('LayoutController', function($scope, $mdSidenav, $location,searchService, $rootScope) {
   $scope.openLeftMenu = function() {
     if (!$mdSidenav('left').isOpen())
       $mdSidenav('left').open();
   };
   $scope.routeTo = function(route) {
+    $rootScope.$broadcast(route);
     $location.path('/'+route);
       $mdSidenav('left').close();
+    $scope.search.text = '';
   };
 
   $scope.openSideNav = function(bool) {
@@ -39,6 +40,11 @@ controller('LayoutController', function($scope, $mdSidenav, $location,toastServi
 
   $scope.search = {};
   $scope.search.type = 'offers';
+  $scope.searchAction = function() {
+    searchService.setSearch($scope.search);
+    $rootScope.$broadcast('search', $scope.search);
+    $location.path('/'+$scope.search.type);
+  }
 }).
 run(['$rootScope', function($rootScope) {
       $rootScope.$on('$routeChangeStart', function (event, next, current) {
