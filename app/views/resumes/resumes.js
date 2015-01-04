@@ -12,13 +12,13 @@ viewModule
 
             $scope.initResume = function() {
                 $scope.resume = {};
-                $scope.resume.language = [];
-                $scope.resume.skills = [];
-                $scope.resume.experiences = [];
-                $scope.resume.hobbies = [];
-                $scope.resume.studies = [];
-                $scope.resume.diploms = [];
-                $scope.resume.cities = [];
+                $scope.resume.language = [''];
+                $scope.resume.skills = [''];
+                $scope.resume.experiences = [''];
+                $scope.resume.hobbies = [''];
+                $scope.resume.studies = [''];
+                $scope.resume.diploms = [''];
+                $scope.resume.cities = [''];
             };
 
             $scope.initResume();

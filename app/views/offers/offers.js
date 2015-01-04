@@ -3,7 +3,7 @@ viewModule
         function($scope, $routeParams, offersService, toastService, $location, searchService) {
             $scope.offer = {};
             $scope.offer.company = {};
-            $scope.offer.requirements = [];
+            $scope.offer.requirements = [''];
             $scope.loading = true;
             $scope.offers = [];
 
