@@ -178,5 +178,18 @@ ul {
 .formController > input {
   width: auto;
 }
+.soloPage {
+  border-left: 10px #ccc solid;
+  padding-left: 10px;
+}
+
+.soloPage span {
+  color: #f59242;
+  font-size: 1.2em
+}
+
+.soloPage h1,h2,h3 {
+  color: #42A5F5;
+}
 
 /** NICO END**/
