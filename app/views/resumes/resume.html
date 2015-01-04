@@ -3,7 +3,7 @@
 </div>
 <div ng-if="!loading" >
 
-    <div ng-show="isResumeFormOpen">
+    <div collapse="!isResumeFormOpen">
         <ng-include src=" 'views/resumes/formResume.html' "></ng-include>
     </div>
 
