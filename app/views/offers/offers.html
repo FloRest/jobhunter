@@ -1,25 +1,30 @@
-<button ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
+<div class="pageView">
+    <button class="toggleFormButton btn btn-primary btn-lg" ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
 
-<div ng-show="isOfferFormOpen" id="replyForm" >
-    <ng-include src=" 'views/offers/formOffer.html' "></ng-include>
-</div>
-
-<div>
-    <div  ng-if="loading">
-        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    <div ng-show="isOfferFormOpen" id="replyForm" >
+        <ng-include src=" 'views/offers/formOffer.html' "></ng-include>
     </div>
-    <div ng-if="!loading" >
-        <div  ng-repeat="offer in offers | orderBy:'dateUpdate':true">
-            <div class="{{offer.type}}"></div>
-            <div><a href ng-click="routeTo('offer/'+offer.id)">{{offer.name}}</a></div>
-            <div>{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
-            <div>
-                Wage : {{offer.price.min}} - {{offer.price.max}}
+
+    <div>
+        <div  ng-if="loading">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div ng-if="!loading" class="row" style="padding:15px">
+            <div class="offer offer-cdi col-md-6 col-sm-12 {{offer.type}}" ng-repeat="offer in offers | orderBy:'dateUpdate':true">
+                <div class="aside">
+                    <div class="type">{{offer.type}}</div>
+                    <div class="date">{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+                </div>
+
+                <h3><a href ng-click="routeTo('offer/'+offer.id)">{{offer.name}}</a></h3>
+                <div class="adress">
+                    <span class="country">{{offer.company.country}},</span> <span class="city">{{offer.company.city}},</span> <span class="company">{{offer.company.name}}</span>
+                </div>
+
+                <div class="wage">
+                    Wage : {{offer.price.min}} - {{offer.price.max}}
+                </div>
             </div>
-            <div>{{offer.type}}</div>
-            <div>{{offer.company.country}}</div>
-            <div>{{offer.company.city}}</div>
-            <div>{{offer.company.name}}</div>
         </div>
     </div>
 </div>

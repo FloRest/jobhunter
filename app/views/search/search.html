@@ -1,10 +1,16 @@
 <form class="form-horizontal" role="form" name="searchForm" novalidate>
 
-    <input  label="Search" ng-model="search.text" placeholder="Search for {{search.type}}" type="text">
+	<div class="form-control searchBar homeSearchBar">
+	    <input  class="form-control" label="Search" ng-model="search.text" placeholder="Search for {{search.type}} {{switchStatus}}" type="text">
 
-    <button aria-label="search" class="" ng-click="searchAction()">
-        O
-    </button>
-
-    Resumes<input type="checkbox" ng-model="search.type" name="type"  ng-true-value="'offers'" ng-false-value="'resumes'">Offers
+	    <button aria-label="search" class="" ng-click="searchAction()">
+	        O
+	    </button>
+	</div>
+	<!--<input type="checkbox" ng-model="search.type" name="type"  ng-true-value="'offers'" ng-false-value="'resumes'">-->
+	<div class="switchSearch">
+	    Resumes
+		<span><toggle-switch ng-model="switchStatus" off-label="" name="type"  ng-true-value="'offers'" ng-false-value="'resumes'"><toggle-switch></span>
+		Offers
+	</div>
 </form>

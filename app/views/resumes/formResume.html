@@ -1,91 +1,123 @@
-<form  role="form" name="offerForm" novalidate>
-    <label for="name">Name</label>
-    <input type="text" id="name" ng-model="resume.name">
+<form  class="formContainer row" role="form" name="offerForm" novalidate>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="name">Name</label>
+        <input class="form-control"  type="text" id="name" ng-model="resume.name">
+    </div>
 
-    <label for="lastName">Last Name</label>
-    <input type="text" id="lastName" ng-model="resume.lastName">
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="lastName">Last Name</label>
+        <input class="form-control"  type="text" id="lastName" ng-model="resume.lastName">
+    </div>
 
-    <label for="email">Mail</label>
-    <input type="email" id="email" ng-model="resume.email">
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="email">Mail</label>
+        <input class="form-control"  type="email" id="email" ng-model="resume.email">
+    </div>
 
-    <label for="birthDate">Birthdate</label>
-    <input type="date" id="birthDate" ng-model="resume.birthDate">
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="birthDate">Birthdate</label>
+        <input class="form-control"  type="date" id="birthDate" ng-model="resume.birthDate">
+    </div>
 
-    <label for="phone">Phone</label>
-    <input type="text" id="phone" ng-model="resume.phone">
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="phone">Phone</label>
+        <input class="form-control"  type="text" id="phone" ng-model="resume.phone">
+    </div>
 
-    <label for="about">About you</label>
-    <textarea id="about" ng-model="resume.about"></textarea>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="about">About you</label>
+        <textarea class="form-control" id="about" ng-model="resume.about"></textarea>
+    </div>
 
-    <label for="country">Country</label>
-    <input type="text" id="country" ng-model="resume.country">
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="country">Country</label>
+        <input class="form-control"  type="text" id="country" ng-model="resume.country">
+    </div>
 
-    <label for="language">Languages</label>
-    <button ng-click="resume.language.push('')">+</button>
-    <ul>
-        <li ng-repeat="languag in resume.language track by $index">
-            <input type="text" ng-model="resume.language[$index]">
-            <button ng-click="pushOff('language',$index);">-</button>
-        </li>
-    </ul>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="language">Languages</label>
+        <button class="btn"  ng-click="resume.language.push('')">+</button>
+        <ul>
+            <li class="searchBar"  ng-repeat="languag in resume.language track by $index">
+                <input class="form-control"  type="text" ng-model="resume.language[$index]">
+                <button class="btn"  ng-click="pushOff('language',$index);">-</button>
+            </li>
+        </ul>
+    </div>
 
-    <label for="skills">Skills</label>
-    <button ng-click="resume.skills.push('')">+</button>
-    <ul>
-        <li ng-repeat="skill in resume.skills track by $index">
-            <input type="text" ng-model="resume.skills[$index]">
-            <button ng-click="pushOff('skills',$index);">-</button>
-        </li>
-    </ul>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="skills">Skills</label>
+        <button class="btn"  ng-click="resume.skills.push('')">+</button>
+        <ul>
+            <li class="searchBar"  ng-repeat="skill in resume.skills track by $index">
+                <input class="form-control"  type="text" ng-model="resume.skills[$index]">
+                <button class="btn"  ng-click="pushOff('skills',$index);">-</button>
+            </li>
+        </ul>
+    </div>
 
-    <label for="experiences">Experiences</label>
-    <button ng-click="resume.experiences.push('')">+</button>
-    <ul>
-        <li ng-repeat="experience in resume.experiences track by $index">
-            <input type="text" ng-model="resume.experiences[$index]">
-            <button ng-click="pushOff('experiences',$index);">-</button>
-        </li>
-    </ul>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="experiences">Experiences</label>
+        <button class="btn"  ng-click="resume.experiences.push('')">+</button>
+        <ul>
+            <li class="searchBar"  ng-repeat="experience in resume.experiences track by $index">
+                <input class="form-control"  type="text" ng-model="resume.experiences[$index]">
+                <button class="btn"  ng-click="pushOff('experiences',$index);">-</button>
+            </li>
+        </ul>
+    </div>
 
-    <label for="hobbies">Hobbies</label>
-    <button ng-click="resume.hobbies.push('')">+</button>
-    <ul>
-        <li ng-repeat="hobbie in resume.hobbies track by $index">
-            <input type="text" ng-model="resume.hobbies[$index]">
-            <button ng-click="pushOff('hobbies',$index);">-</button>
-        </li>
-    </ul>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="hobbies">Hobbies</label>
+        <button class="btn"  ng-click="resume.hobbies.push('')">+</button>
+        <ul>
+            <li class="searchBar"  ng-repeat="hobbie in resume.hobbies track by $index">
+                <input class="form-control"  type="text" ng-model="resume.hobbies[$index]">
+                <button class="btn"  ng-click="pushOff('hobbies',$index);">-</button>
+            </li>
+        </ul>
+    </div>
 
-    <label for="studies">Studies</label>
-    <button ng-click="resume.studies.push('')">+</button>
-    <ul>
-        <li ng-repeat="studie in resume.studies track by $index">
-            <input type="text" ng-model="resume.studies[$index]">
-            <button ng-click="pushOff('studies',$index);">-</button>
-        </li>
-    </ul>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="studies">Studies</label>
+        <button class="btn"  ng-click="resume.studies.push('')">+</button>
+        <ul>
+            <li class="searchBar"  ng-repeat="studie in resume.studies track by $index">
+                <input class="form-control"  type="text" ng-model="resume.studies[$index]">
+                <button class="btn"  ng-click="pushOff('studies',$index);">-</button>
+            </li>
+        </ul>
+    </div>
 
-    <label for="diploms">Diploms</label>
-    <button ng-click="resume.diploms.push('')">+</button>
-    <ul>
-        <li ng-repeat="diplom in resume.diploms track by $index">
-            <input type="text" ng-model="resume.diploms[$index]">
-            <button ng-click="pushOff('diploms',$index);">-</button>
-        </li>
-    </ul>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="diploms">Diploms</label>
+        <button class="btn"  ng-click="resume.diploms.push('')">+</button>
+        <ul>
+            <li class="searchBar"  ng-repeat="diplom in resume.diploms track by $index">
+                <input class="form-control"  type="text" ng-model="resume.diploms[$index]">
+                <button class="btn"  ng-click="pushOff('diploms',$index);">-</button>
+            </li>
+        </ul>
+    </div>
 
-    <label for="cities">Cities</label>
-    <button ng-click="resume.cities.push('')">+</button>
-    <ul>
-        <li ng-repeat="citie in resume.cities track by $index">
-            <input type="text" ng-model="resume.cities[$index]">
-            <button ng-click="pushOff('cities',$index);">-</button>
-        </li>
-    </ul>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="cities">Cities</label>
+        <button class="btn"  ng-click="resume.cities.push('')">+</button>
+        <ul>
+            <li class="searchBar"  ng-repeat="citie in resume.cities track by $index">
+                <input class="form-control"  type="text" ng-model="resume.cities[$index]">
+                <button class="btn"  ng-click="pushOff('cities',$index);">-</button>
+            </li>
+        </ul>
+    </div>
 
-    <label for="secret">Secret</label>
-    <input type="password" id="secret" ng-model="resume.secret">
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="secret">Secret</label>
+        <input class="form-control"  type="password" id="secret" ng-model="resume.secret">
+    </div>
 
-    <button ng-click="initResume();isOfferFormOpen=false">Cancel</button>
-    <button type="submit" ng-click="sendResume()">Send</button>
+    <div class="col-md-12 col-sm-12 formController">
+        <button class="btn btn-primary" type="submit" ng-click="sendResume()">Send</button>
+        <button class="btn" ng-click="initResume();isOfferFormOpen=false">Cancel</button>
+    </div>
 </form>

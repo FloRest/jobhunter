@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="bower_components/angular-material/themes/light-green-theme.css">
   <link rel="stylesheet" href="bower_components/angular-material/themes/blue-theme.css">
   <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.min.css">
+  <link rel="stylesheet" href="components/angular-toggle-switch/angular-toggle-switch.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
   <script src="bower_components/underscore/underscore-min.js"></script>
@@ -56,10 +57,12 @@
           </md-button>
           <span style="color:#000000">
             <form class="form-horizontal" role="form" name="searchForm" novalidate>
-              <input  label="Search" ng-model="search.text" placeholder="Search for {{search.type}}" type="text" flex="80">
-              <button aria-label="search" class="md-button-colored md-primary nav-button" ng-click="searchAction()" flex="10">
-                O
-              </button>
+              <div class="form-control searchBar">
+                <input class="form-control" label="Search" ng-model="search.text" placeholder="Search for {{search.type}}" type="text" flex="80">
+                <button aria-label="search" class="md-button-colored md-primary nav-button" ng-click="searchAction()" flex="10">
+                  O
+                </button>
+              </div>
             </form>
           </span>
           <!-- fill up the space between left and right area -->
@@ -94,6 +97,7 @@
   <script src="components/apiRest/resumes/resumes.js"></script>
   <script src="components/apiRest/search/search.js"></script>
   <!---->
+  <script src="components/angular-toggle-switch/angular-toggle-switch.min.js"></script>
   <script src="components/toast/toast.js"></script>
   <!---->
 

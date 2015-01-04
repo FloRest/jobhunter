@@ -78,3 +78,95 @@ md-card {
 
 }
 /**/
+
+
+/** NICO **/
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.searchBar {
+  position: relative;
+  height: auto;
+  border: none;
+  padding: 0;
+}
+.searchBar input {
+  max-width: 100%;
+  padding-right: 32px; /*12 + 20*/
+  font-size: 20px;
+}
+.searchBar button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border: none;
+  background: none;
+  font-size: 20px;
+}
+
+.homeSearchBar {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+
+.homeSearchBar input {
+  height: 50px;  
+}
+
+.homeSearchBar button {
+  line-height: 50px;  
+}
+
+
+.pageView {
+  margin: 10px;
+}
+
+.toggleFormButton {
+  width: 100%;
+}
+
+.switchSearch {
+  margin-top: 10px;
+  text-align: center;
+  line-height: 
+}
+
+.formInput {
+  margin-top: 10px;
+}
+
+.offer {
+  margin-top: 10px;
+  margin-left: 0;
+  position: relative;
+  padding-right: 100px;
+  padding-left: 10px;
+}
+
+.offer-cdi {
+  border-left: lightgreen 10px solid;
+}
+
+.aside {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+}
+.offer h3 {
+  margin: 0;
+}
+
+.formController {
+  text-align: right;
+}
+
+
+/** NICO END**/
