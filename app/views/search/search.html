@@ -1,16 +1,26 @@
-<form class="form-horizontal" role="form" name="searchForm" novalidate>
+<div class="page page-main">
+	<header id="mainHeader">
+		<div class="header-wrapper">
+		<h1>Hunta Xuiba</h1>
+		<form class="form-horizontal" role="form" name="searchForm" novalidate style="margin-top: 1em;">
+		    
+		<div class="form-control searchBar homeSearchBar">
+		    <input  class="form-control" label="Search" ng-model="search.text" placeholder="Search for {{search.type}} {{switchStatus}}" type="text">
 
-	<div class="form-control searchBar homeSearchBar">
-	    <input  class="form-control" label="Search" ng-model="search.text" placeholder="Search for {{search.type}} {{switchStatus}}" type="text">
+		    <button aria-label="search" class="" ng-click="searchAction()">
+		        O
+		    </button>
+		</div>
 
-	    <button aria-label="search" class="" ng-click="searchAction()">
-	        O
-	    </button>
-	</div>
-	<!--<input type="checkbox" ng-model="search.type" name="type"  ng-true-value="'offers'" ng-false-value="'resumes'">-->
-	<div class="switchSearch">
-	    Resumes
-		<span><toggle-switch ng-model="switchStatus" off-label="" name="type"  ng-true-value="'offers'" ng-false-value="'resumes'"><toggle-switch></span>
-		Offers
-	</div>
-</form>
+	    <div class="onoffswitch">
+		    <input type="checkbox" name="type" class="onoffswitch-checkbox" id="myonoffswitch" checked ng-model="search.type" ng-true-value="'offers'" ng-false-value="'resumes'">
+		    <label class="onoffswitch-label" for="myonoffswitch">
+		        <span class="onoffswitch-inner"></span>
+		        <span class="onoffswitch-switch"></span>
+		    </label>
+		</div>
+		   
+		</form>
+		</div>
+	</header>
+</div>
