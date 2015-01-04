@@ -19,7 +19,7 @@ angular.module('huntaxuiba', [
   'huntaxuiba.toastService',
   'huntaxuiba.views'
 ]).
-controller('LayoutController', function($scope, $mdSidenav, $location,toastService) {
+controller('LayoutController', function($scope, $mdSidenav, $location,searchService, $rootScope) {
   $scope.openLeftMenu = function() {
     if (!$mdSidenav('left').isOpen())
       $mdSidenav('left').open();
@@ -27,6 +27,7 @@ controller('LayoutController', function($scope, $mdSidenav, $location,toastServi
   $scope.routeTo = function(route) {
     $location.path('/'+route);
       $mdSidenav('left').close();
+    $scope.search.text = '';
   };
 
   $scope.openSideNav = function(bool) {
@@ -38,6 +39,9 @@ controller('LayoutController', function($scope, $mdSidenav, $location,toastServi
 
   $scope.search = {};
   $scope.search.type = 'offers';
+  $scope.searchAction = function() {
+    $rootScope.$broadcast('search', $scope.search);
+  }
 }).
 run(['$rootScope', function($rootScope) {
       $rootScope.$on('$routeChangeStart', function (event, next, current) {

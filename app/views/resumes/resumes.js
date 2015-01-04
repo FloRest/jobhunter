@@ -1,6 +1,6 @@
 viewModule
-    .controller('ResumesController', ['$scope', '$routeParams', 'resumesService', 'toastService', '$location',
-        function($scope, $routeParams, resumesService, toastService, $location) {
+    .controller('ResumesController', ['$scope', '$routeParams', 'resumesService', 'toastService', '$location', 'searchService',
+        function($scope, $routeParams, resumesService, toastService, $location, searchService) {
 
             $scope.loading = true;
             $scope.resumes=[];
@@ -33,10 +33,30 @@ viewModule
                 });
             };
 
-            resumesService.getAll().success(function(data){
-               $scope.resumes = $scope.resumes.concat(data.hits);
-                $scope.loading = false;
+            $scope.$on('search', function(event, search) {
+                if (search.type == 'resumes') {
+                    $scope.loading = true;
+                    searchService.basicSearch(search.type, search.text).success(function(data) {
+                        $scope.offers = data.hits;
+                        $scope.loading = false;
+                    });
+                }
             });
+
+            var search = searchService.getSearch();
+
+            if (search) {
+                searchService.basicSearch(search.type, search.text).success(function(data) {
+                    $scope.resumes = data.hits;
+                    $scope.loading = false;
+                });
+                searchService.setSearch(null);
+            }else {
+                resumesService.getAll().success(function(data){
+                    $scope.resumes = $scope.resumes.concat(data.hits);
+                    $scope.loading = false;
+                });
+            }
 
             $scope.routeTo = function(route) {
                 $location.path('/'+route);
