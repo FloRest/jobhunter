@@ -192,4 +192,13 @@ ul {
   color: #42A5F5;
 }
 
+.btn-plus {
+  line-height: 0.5;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+label[for="secret"] {
+  padding: 5px;
+}
 /** NICO END**/
