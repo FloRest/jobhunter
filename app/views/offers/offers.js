@@ -42,7 +42,17 @@ viewModule
                 });
             }
 
+            $scope.$on('offers', function(event, args) {
+                $scope.loading = true;
+                offersService.getAll().success(function(data){
+                    $scope.offers = data.hits;
+                    $scope.loading = false;
+                });
+            });
+
             $scope.$on('search', function(event, search) {
+                if (!search)
+                return;
                if (search.type == 'offers') {
                    $scope.loading = true;
                    searchService.basicSearch(search.type, search.text).success(function(data) {

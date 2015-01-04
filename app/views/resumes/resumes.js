@@ -34,17 +34,26 @@ viewModule
             };
 
             $scope.$on('search', function(event, search) {
+                if (!search)
+                    return;
                 if (search.type == 'resumes') {
                     $scope.loading = true;
                     searchService.basicSearch(search.type, search.text).success(function(data) {
-                        $scope.offers = data.hits;
+                        $scope.resumes = data.hits;
                         $scope.loading = false;
                     });
                 }
             });
 
-            var search = searchService.getSearch();
+            $scope.$on('resumes', function(event, args) {
+                $scope.loading = true;
+                resumesService.getAll().success(function(data){
+                    $scope.resumes = data.hits;
+                    $scope.loading = false;
+                });
+            });
 
+            var search = searchService.getSearch();
             if (search) {
                 searchService.basicSearch(search.type, search.text).success(function(data) {
                     $scope.resumes = data.hits;

@@ -2,7 +2,7 @@
 
 var CONFIG = {};
 CONFIG.api = {
-  endpoint : "http://172.28.16.12",
+  endpoint : "http://localhost",
   port : "1338"
 };
 CONFIG.api.route = CONFIG.api.endpoint + ':' + CONFIG.api.port;
@@ -25,6 +25,7 @@ controller('LayoutController', function($scope, $mdSidenav, $location,searchServ
       $mdSidenav('left').open();
   };
   $scope.routeTo = function(route) {
+    $rootScope.$broadcast(route);
     $location.path('/'+route);
       $mdSidenav('left').close();
     $scope.search.text = '';
@@ -40,7 +41,9 @@ controller('LayoutController', function($scope, $mdSidenav, $location,searchServ
   $scope.search = {};
   $scope.search.type = 'offers';
   $scope.searchAction = function() {
+    searchService.setSearch($scope.search);
     $rootScope.$broadcast('search', $scope.search);
+    $location.path('/'+$scope.search.type);
   }
 }).
 run(['$rootScope', function($rootScope) {
