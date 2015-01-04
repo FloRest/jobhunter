@@ -79,7 +79,7 @@
 
     <div class="col-md-6 col-sm-12 formInput">
         <label for="requirements">Requirements</label>
-        <button class="btn" ng-click="offer.requirements.push('')">+</button>
+        <button class="btn btn-plus" ng-click="offer.requirements.push('')">+</button>
         <ul>
             <li class="searchBar" ng-repeat="requirement in offer.requirements track by $index">
                 <input  class="form-control" type="text" ng-model="offer.requirements[$index]">
@@ -88,13 +88,12 @@
         </ul>
     </div>
 
-    <div class="col-md-6 col-sm-12 formInput">
-        <label for="secret">Secret</label>
-        <input class="form-control" type="password" id="secret" ng-model="offer.secret">
-    </div>
 
     <div class="col-md-12 col-sm-12 formController">
         <button class="btn btn-primary" type="submit" ng-click="sendOffer()">Send</button>
         <button class="btn" ng-click="isOfferFormOpen=false;cancelOffer()">Cancel</button>
+
+        <input class="form-control" type="password" id="secret" ng-model="offer.secret">
+        <label for="secret">Secret</label>
     </div>
 </form>
