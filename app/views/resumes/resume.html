@@ -1,32 +1,34 @@
-<div  ng-if="loading">
-    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-</div>
-<div ng-if="!loading" >
-
-    <div ng-show="isResumeFormOpen">
-        <ng-include src=" 'views/resumes/formResume.html' "></ng-include>
+<div class="pageView">
+    <div  ng-if="loading">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
+    <div ng-if="!loading" >
 
-    <div>{{resume.name}}</div>
-    <div>{{resume.lastName}}</div>
-    <div>{{resume.country}}</div>
-    <div ng-repeat="city in resume.cities">{{city}}</div>
-    <div>{{resume.birthDate  | date:'dd/MM/yyyy HH:mm:ss'}}</div>
-    <div>{{resume.email}}</div>
-    <div>{{resume.phone}}</div>
+        <div collapse="!isResumeFormOpen">
+            <ng-include src=" 'views/resumes/formResume.html' "></ng-include>
+        </div>
 
-    <div ng-repeat="languag in resume.language">{{languag}}</div>
-    <div ng-repeat="diplom in resume.diploms">{{diplom}}</div>
-    <div ng-repeat="experience in resume.experiences">{{experience}}</div>
-    <div ng-repeat="skill in resume.skills">{{skill}}</div>
-    <div ng-repeat="hobbie in resume.hobbies">{{hobbie}}</div>
-    <div ng-repeat="studie in resume.studies">{{studie}}</div>
+        <div>{{resume.name}}</div>
+        <div>{{resume.lastName}}</div>
+        <div>{{resume.country}}</div>
+        <div ng-repeat="city in resume.cities">{{city}}</div>
+        <div>{{resume.birthDate  | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+        <div>{{resume.email}}</div>
+        <div>{{resume.phone}}</div>
 
-    <div>{{resume.about}}</div>
+        <div ng-repeat="languag in resume.language">{{languag}}</div>
+        <div ng-repeat="diplom in resume.diploms">{{diplom}}</div>
+        <div ng-repeat="experience in resume.experiences">{{experience}}</div>
+        <div ng-repeat="skill in resume.skills">{{skill}}</div>
+        <div ng-repeat="hobbie in resume.hobbies">{{hobbie}}</div>
+        <div ng-repeat="studie in resume.studies">{{studie}}</div>
 
-    <div>{{resume.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+        <div>{{resume.about}}</div>
 
-    <button ng-click="updateClick(resume)">Update</button>
-    <input type="password"  ng-show="showSecretDeleteInput" ng-model="resume.secret">
-    <button ng-click="deleteResume(resume);showSecretDeleteInput=true">Delete</button>
+        <div>{{resume.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+
+        <button ng-click="updateClick(resume)">Update</button>
+        <input type="password"  ng-show="showSecretDeleteInput" ng-model="resume.secret">
+        <button ng-click="deleteResume(resume);showSecretDeleteInput=true">Delete</button>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="pageView">
     <button class="toggleFormButton btn btn-primary btn-lg" ng-click="isResumeFormOpen = !isResumeFormOpen">Post your resume</button>
 
-    <div ng-show="isResumeFormOpen" id="replyForm" >
+    <div collapse="!isResumeFormOpen" id="replyForm" >
         <ng-include src=" 'views/resumes/formResume.html' "></ng-include>
     </div>
 

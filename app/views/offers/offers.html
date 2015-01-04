@@ -1,7 +1,7 @@
 <div class="pageView">
     <button class="toggleFormButton btn btn-primary btn-lg" ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
 
-    <div ng-show="isOfferFormOpen" id="replyForm" >
+    <div collapse="!isOfferFormOpen" id="replyForm" >
         <ng-include src=" 'views/offers/formOffer.html' "></ng-include>
     </div>
 
