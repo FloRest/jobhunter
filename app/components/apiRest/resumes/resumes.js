@@ -20,8 +20,8 @@ apiService
                     params: params
                 });
             },
-            delete: function (id, data) {
-                return $http.delete(url+'/'+id, data)
+            delete: function (id, secret) {
+                return $http.delete(url+'/'+id+'?secret='+secret)
             }
         };
     })

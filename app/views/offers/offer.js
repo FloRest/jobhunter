@@ -1,6 +1,6 @@
 viewModule
-    .controller('OfferController', ['$scope', '$routeParams', 'offersService', 'toastService',
-        function($scope, $routeParams, offersService, toastService) {
+    .controller('OfferController', ['$scope', '$routeParams', 'offersService', 'toastService', '$location',
+        function($scope, $routeParams, offersService, toastService, $location) {
 
             $scope.loading = true;
 
@@ -19,15 +19,15 @@ viewModule
             };
 
             var firstDelete = true;
-            $scope.deleteOffer = function() {
+            $scope.deleteOffer = function(offer) {
                 if (firstDelete) {
                     firstDelete = false;
                 } else {
-                    $scope.offer.secret = $scope.secretDelete;
-                    offersService.delete($scope.offer.id, $scope.offer).success(function() {
-
+                    offersService.delete($scope.offer.id, $scope.offer.secret).success(function() {
+                        toastService.toast('Job offer deleted.');
+                        $location.path('/offers');
                     }).error(function() {
-
+                        toastService.toast('Can not delete. Did you forgot the secret ?')
                     });
                     firstDelete = true;
                 }

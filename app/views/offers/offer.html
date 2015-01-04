@@ -32,6 +32,6 @@
     <div><a target="_blank" href="http://{{offer.company.website}}">{{offer.company.website}}</a></div>
 
     <button ng-click="updateClick()">Update</button>
-    <input ng-init="showSecretDeleteInput=false" ng-show="showSecretDeleteInput" ng-model="secretDelete">
+    <input type="password" ng-show="showSecretDeleteInput" ng-model="offer.secret">
     <button ng-click="deleteOffer(offer);showSecretDeleteInput=true">Delete</button>
 </div>

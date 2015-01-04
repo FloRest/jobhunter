@@ -26,7 +26,8 @@ viewModule
                 resumesService.create($scope.resume).success(function(data, err) {
                     $scope.resumes.push(data);
                     toastService.toast('You successfully created your resume !');
-                    $scope.isOfferFormOpen = false;
+                    $scope.isResumeFormOpen = false;
+                    $scope.initResume();
                 }).error(function() {
                     toastService.toast('Something is wrong. Check the fields.');
                 });
