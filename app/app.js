@@ -50,5 +50,12 @@ run(['$rootScope', function($rootScope) {
       $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
       });
+      $rootScope.$on('$viewContentLoaded', function (event, next, current) {
+        var el = document.getElementById("mainHeader");
+        if (!el || el.style.background)
+          return;
+        el.style.background = "url(http://lorempixel.com/" + el.clientWidth + "/" + el.clientHeight + ")";
+        el.style.padding = (+(el.clientHeight) / 2 / 2) + "px";
+      });
     }])
 ;
