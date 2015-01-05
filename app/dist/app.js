@@ -352,6 +352,11 @@ viewModule
                 });
             };
 
+            $scope.cancelResume = function() {
+                $scope.initResume();
+                $scope.isResumeFormOpen = false;
+            };
+
             $scope.$on('search', function(event, search) {
                 if (!search)
                     return;
