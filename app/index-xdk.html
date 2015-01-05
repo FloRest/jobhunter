@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="huntaxuiba" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Huntaxuiba</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" type="text/css" href="dist/app.min.css">
+  <script src="dist/libs.min.js"></script>
+</head>
+<body>
+  
+  <div ng-controller="LayoutController"  md-theme="blue" md-swipe-left="openSideNav(false)" md-swipe-right="openSideNav(true)" style="width: 100%; height: 100%">
+    <section layout="row" flex>
+    <md-sidenav style="min-height:100vh;" md-component-id="left" class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$media('min-width: 959px')">
+      <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">
+          <span style="color:#ffffff; cursor: pointer" ng-click="routeTo('search')">Hunta Xiuba</span>
+          <!-- fill up the space between left and right area -->
+          <span flex></span>
+        </div>
+      </md-toolbar>
+
+          <div>
+            <md-button aria-label="Offers" class="md-primary nav-button" ng-click="routeTo('offers');search.type='offers'">
+              Offers
+            </md-button>
+          </div>
+          <div>
+            <md-button aria-label="Resumes" class="md-primary nav-button" ng-click="routeTo('resumes');search.type='resumes'">
+              Resumes
+            </md-button>
+          </div>
+
+    </md-sidenav>
+
+    <md-content flex>
+      <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">
+          <md-button id="menuButton" aria-label="Menu" style="height: 50px; width:50px; color:white; font-size: 20px;" class="md-button-colored md-primary" ng-click="openLeftMenu()">
+            <span class="glyphicon glyphicon-align-justify"></span>
+          </md-button>
+          <span style="color:#000000">
+            <form class="form-horizontal" role="form" name="searchForm" novalidate>
+              <div class="form-control searchBar">
+                <input class="form-control" label="Search" ng-model="search.text" placeholder="Search for {{search.type}}" type="text" flex="80">
+                <button aria-label="search" class="md-button-colored md-primary nav-button" ng-click="searchAction()" flex="10">
+                  O
+                </button>
+              </div>
+            </form>
+          </span>
+          <!-- fill up the space between left and right area -->
+          <span flex></span>
+        </div>
+      </md-toolbar>
+        <div class='' ng-view style="min-height: 93%"></div>
+    </md-content>
+      </section>
+  </div>
+
+
+  <!-- components angular -->
+
+  <script src="dist/app.js"></script>
+
+</body>
+</html>

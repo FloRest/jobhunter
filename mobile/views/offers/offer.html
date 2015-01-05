@@ -1,0 +1,35 @@
+<div class="pageView soloPage">
+    <div  ng-if="loading">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div ng-if="!loading" >
+
+        <div collapse="!isOfferFormOpen">
+            <ng-include src=" 'views/offers/formOffer.html' "></ng-include>
+        </div>
+
+        <h2>{{offer.name}}</h2>
+        <div style="font-size:0.8em" class="date">{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+        <div class="type">{{offer.type}}</div>
+        <div>
+            <span>Wage :</span> {{offer.price.min}} - {{offer.price.max}}
+        </div>
+        <span>Description :</span>
+        <p>{{offer.description}}</p>
+        <div>
+            <div><span>Requirements : <span></div>
+            <div ng-repeat="requirement in offer.requirements">{{requirement}}</div>
+        </div>
+        <h3>COMPANY INFORMATION</h3>
+        <div><span>Company: </span>{{offer.company.name}}</div>
+        <div><span>E-mail: </span>{{offer.email}}</div>
+        <div><span>Phone: <span>{{offer.phone}}</div>
+        <div><span>Adress : <span>{{offer.company.country}}, {{offer.company.city}}, {{offer.company.adress}}</div>
+        <div><span>Description : </span>{{offer.company.description}}</div>
+        <div><span>Website : </span><a target="_blank" href="http://{{offer.company.website}}">{{offer.company.website}}</a></div>
+
+        <button class="btn btn-primary" ng-click="updateClick()">Update</button>
+        <input type="password" ng-show="showSecretDeleteInput" ng-model="offer.secret">
+        <button class="btn btn" ng-click="deleteOffer(offer);showSecretDeleteInput=true">Delete</button>
+    </div>
+</div>

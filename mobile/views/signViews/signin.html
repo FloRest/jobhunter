@@ -1,0 +1,13 @@
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <form class="form-horizontal" role="form" name="loginForm" ng-controller="SignInController"  novalidate>
+
+        <md-text-float class="full-width" label="E-mail" ng-model="credentials.email" type="email"></md-text-float>
+        <md-text-float class="full-width" label="Password" ng-model="credentials.password" type="password"></md-text-float>
+
+        <md-button aria-label="signIn" class="md-button-colored md-primary nav-button" ng-click="login(credentials)">
+            SignIn
+        </md-button>
+    </form>
+</div>

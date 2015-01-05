@@ -1,0 +1,99 @@
+<form  class="formContainer row" role="form" name="offerForm" novalidate>
+    <div class="col-md-6 col-sm-12 formInput formInput">
+        <label for="name">Offer title</label>
+        <input class="form-control" type="text" id="name" ng-model="offer.name">
+    </div>
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="email">Mail</label>
+        <input class="form-control" type="email" id="email" ng-model="offer.email">
+    </div>
+
+     
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="phone">Phone</label>
+        <input class="form-control" type="text" id="phone" ng-model="offer.phone">
+    </div>
+
+    <!-- COMPANY -->
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_name">Company name</label>
+        <input class="form-control"  type="text" id="company_name" ng-model="offer.company.name">
+    </div>
+
+     
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_city">Company city</label>
+        <input class="form-control"  type="text" id="company_city" ng-model="offer.company.city">
+    </div>
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_country">Company country</label>
+        <input  class="form-control" type="text" id="company_country" ng-model="offer.company.country">
+    </div>
+
+     
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_address">Company address</label>
+        <input  class="form-control" type="text" id="company_address" ng-model="offer.company.address">
+    </div>
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_description">Company description</label>
+        <textarea  class="form-control" id="company_description" ng-model="offer.company.description"></textarea>
+    </div>
+
+     
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="company_website">Company website</label>
+        <input  class="form-control" type="text" id="company_website" ng-model="offer.company.website">
+    </div>
+
+    <!-- end -->
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="job_description">Job description</label>
+        <textarea class="form-control"  id="job_description" ng-model="offer.description"></textarea>
+    </div>
+
+     
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="price_min">Minimum wage</label>
+        <input class="form-control"  type="number" id="price_min" ng-model="offer.price.min">
+    </div>
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="price_max">Maximum wage</label>
+        <input  class="form-control" type="number" id="price_max" ng-model="offer.price.max">
+    </div>
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="type">Offer type</label>
+        <input  class="form-control" type="text" id="type" ng-model="offer.type">
+    </div>
+
+    <div class="col-md-6 col-sm-12 formInput">
+        <label for="requirements">Requirements</label>
+        <button class="btn btn-plus" ng-click="offer.requirements.push('')">+</button>
+        <ul>
+            <li class="searchBar" ng-repeat="requirement in offer.requirements track by $index">
+                <input  class="form-control" type="text" ng-model="offer.requirements[$index]">
+                <button class="btn" ng-click="pushOffRequirements($index);">-</button>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="col-md-12 col-sm-12 formController">
+        <button class="btn btn-primary" type="submit" ng-click="sendOffer()">Send</button>
+        <button class="btn" ng-click="isOfferFormOpen=false;cancelOffer()">Cancel</button>
+
+        <input class="form-control" type="password" id="secret" ng-model="offer.secret">
+        <label for="secret">Secret</label>
+    </div>
+</form>

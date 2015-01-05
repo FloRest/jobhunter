@@ -1,0 +1,15 @@
+<div layout="row" ng-if="loading" layout-sm="column" layout-align="space-around">
+    <md-progress-circular mode="indeterminate"></md-progress-circular>
+</div>
+<div ng-if="!loading">
+    <div ng-repeat="feedItem in feedItems">
+        <div ng-if="feedItem.type == 'comment'">
+            <md-card ng-click="goToRessource(feedItem.ressource_type, feedItem.ressource)">
+                <div>
+                    <a href="#/profile/{{comment.createdBy.id}}">{{feedItem.createdBy.name}}</a> commented a <a href="#/recipe/{{feedItem.ressource}}">{{feedItem.ressource_type}}</a>
+                </div>
+                <blockquote>{{feedItem.comment}}</blockquote>
+            </md-card>
+        </div>
+    </div>
+</div>

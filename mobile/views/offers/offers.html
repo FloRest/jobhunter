@@ -1,0 +1,30 @@
+<div class="pageView">
+    <button class="toggleFormButton btn btn-primary btn-lg" ng-click="isOfferFormOpen = !isOfferFormOpen">Create job offer</button>
+
+    <div collapse="!isOfferFormOpen" id="replyForm" >
+        <ng-include src=" 'views/offers/formOffer.html' "></ng-include>
+    </div>
+
+    <div>
+        <div  ng-if="loading">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div ng-if="!loading" class="row">
+            <div class="offer offer-cdi col-md-6 col-sm-12 {{offer.type}} fx-fade-left fx-speed-1500" ng-repeat="offer in offers | orderBy:'dateUpdate':true">
+                <div class="aside">
+                    <div class="type">{{offer.type}}</div>
+                    <div class="date">{{offer.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+                </div>
+
+                <h3><a href ng-click="routeTo('offer/'+offer.id)">{{offer.name}}</a></h3>
+                <div class="adress">
+                    <span class="country">{{offer.company.country}},</span> <span class="city">{{offer.company.city}},</span> <span class="company">{{offer.company.name}}</span>
+                </div>
+
+                <div class="wage">
+                    Wage : {{offer.price.min}} - {{offer.price.max}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
