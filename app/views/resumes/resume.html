@@ -1,4 +1,4 @@
-<div class="pageView">
+<div class="pageView soloPage">
     <div  ng-if="loading">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
@@ -8,27 +8,43 @@
             <ng-include src=" 'views/resumes/formResume.html' "></ng-include>
         </div>
 
-        <div>{{resume.name}}</div>
-        <div>{{resume.lastName}}</div>
-        <div>{{resume.country}}</div>
+        <h1>{{resume.name}} {{resume.lastName}}</h2>
+        <div style="font-size:0.8em">{{resume.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
+        <div><span>About: </span>{{resume.about}}</div>
+        <div><span>Country</span> {{resume.country}}</div>
+        <div><span>Cities :</span></div>
         <div ng-repeat="city in resume.cities">{{city}}</div>
         <div>{{resume.birthDate  | date:'dd/MM/yyyy HH:mm:ss'}}</div>
-        <div>{{resume.email}}</div>
-        <div>{{resume.phone}}</div>
+        <div><span>E-mail :</span>{{resume.email}}</div>
+        <div><span>Phone :</span>{{resume.phone}}</div>
 
+        <div>
+            <span>Languages :</span>
+        </div>
         <div ng-repeat="languag in resume.language">{{languag}}</div>
+        <div>
+            <span>Diploms :</span>
+        </div>
         <div ng-repeat="diplom in resume.diploms">{{diplom}}</div>
+        <div>
+            <span>Experiences :</span>
+        </div>
         <div ng-repeat="experience in resume.experiences">{{experience}}</div>
+        <div>
+            <span>Skills :</span>
+        </div>
         <div ng-repeat="skill in resume.skills">{{skill}}</div>
+        <div>
+            <span>Hobbies :</span>
+        </div>
         <div ng-repeat="hobbie in resume.hobbies">{{hobbie}}</div>
+        <div>
+            <span>Studies :</span>
+        </div>
         <div ng-repeat="studie in resume.studies">{{studie}}</div>
 
-        <div>{{resume.about}}</div>
-
-        <div>{{resume.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
-
-        <button ng-click="updateClick(resume)">Update</button>
+        <button class="btn btn-primary" ng-click="updateClick(resume)">Update</button>
         <input type="password"  ng-show="showSecretDeleteInput" ng-model="resume.secret">
-        <button ng-click="deleteResume(resume);showSecretDeleteInput=true">Delete</button>
+        <button class="btn" ng-click="deleteResume(resume);showSecretDeleteInput=true">Delete</button>
     </div>
 </div>
