@@ -14,6 +14,9 @@ if (process.env.NODE_ENV === "production") {
 	config.port = 80;
 }
 
+app.get('/clients/huntaxuiba.apk', function (req, res) {
+	return res.sendFile(__dirname + '/builds/huntaxuiba.android.apk');
+});
 app.use(compression());
 app.use(serveStatic('app', { 'index': config.index }));
 app.listen(config.port, function () {
