@@ -219,7 +219,7 @@ angular.module('huntaxuiba', [
   'huntaxuiba.apiService',
   'huntaxuiba.toastService',
   'huntaxuiba.views',
-    'ui.bootstrap'
+  'ui.bootstrap'
 ]).
 controller('LayoutController', function($scope, $mdSidenav, $location,searchService, $rootScope) {
   $scope.openLeftMenu = function() {
@@ -253,11 +253,15 @@ run(['$rootScope', function($rootScope) {
 
       });
       $rootScope.$on('$viewContentLoaded', function (event, next, current) {
-        var el = document.getElementById("mainHeader");
+        var el = document.getElementById("mainHeader-wrapper");
+        
         if (!el || el.style.background)
           return;
         el.style.background = "url(http://lorempixel.com/" + el.clientWidth + "/" + el.clientHeight + ")";
-        el.style.paddingTop = (+(el.clientHeight) / 2 / 2) + "px";
+        var child = document.getElementById("mainHeader");
+        if (document.documentElement.clientHeight < (child.clientHeight + 64))
+          return;
+        el.style.paddingTop = (+(el.clientHeight) / 2 - (+(child.clientHeight) / 2)) + "px";
       });
     }])
 ;
