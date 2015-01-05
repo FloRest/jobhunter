@@ -203,7 +203,7 @@ angular.module('huntaxuiba.toastService', ['ngMaterial'])
 
 var CONFIG = {};
 CONFIG.api = {
-  endpoint : "http://172.30.2.73",
+  endpoint : "http://huntaxuiba.biz.tm",
   port : "1338"
 };
 CONFIG.api.route = CONFIG.api.endpoint + ':' + CONFIG.api.port;
@@ -257,7 +257,7 @@ run(['$rootScope', function($rootScope) {
         if (!el || el.style.background)
           return;
         el.style.background = "url(http://lorempixel.com/" + el.clientWidth + "/" + el.clientHeight + ")";
-        el.style.padding = (+(el.clientHeight) / 2 / 2) + "px";
+        el.style.paddingTop = (+(el.clientHeight) / 2 / 2) + "px";
       });
     }])
 ;
