@@ -10,7 +10,7 @@
             <md-progress-circular md-mode="indeterminate"></md-progress-circular>
         </div>
         <div ng-if="!loading" class="row">
-            <div class="offer offer-cdi col-md-6 col-sm-12" ng-repeat="resume in resumes | orderBy:'dateUpdate':true">
+            <div class="offer offer-cdi col-md-6 col-sm-12 fx-fade-left fx-speed-1500" ng-repeat="resume in resumes | orderBy:'dateUpdate':true">
                 <div class="aside">
                     <div class="date">{{resume.dateUpdate | date:'dd/MM/yyyy HH:mm:ss'}}</div>
                 </div>
