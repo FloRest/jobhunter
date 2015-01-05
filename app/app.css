@@ -198,6 +198,13 @@ ul {
   padding-right: 6px;
 }
 
+md-progress-circular {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 label[for="secret"] {
   padding: 5px;
 }
