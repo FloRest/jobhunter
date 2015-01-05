@@ -259,7 +259,6 @@ run(['$rootScope', function($rootScope) {
           return;
         el.style.background = "url(http://lorempixel.com/" + el.clientWidth + "/" + el.clientHeight + ")";
         var child = document.getElementById("mainHeader");
-        console.log(document.documentElement.clientHeight, (child.clientHeight + 64))
         if (document.documentElement.clientHeight < (child.clientHeight + 64))
           return;
         el.style.paddingTop = (+(el.clientHeight) / 2 - (+(child.clientHeight) / 2)) + "px";
